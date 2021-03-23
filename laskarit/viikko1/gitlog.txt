@@ -1,0 +1,96 @@
+commit 6ba739371855be0d7c266ad5272e95a02a6613ac
+Author: Kaisa <45688258+KooEeVee@users.noreply.github.com>
+Date:   Mon Mar 22 21:03:56 2021 +0200
+
+    file1.txt poistettu, file2.txt uudelleennimetty
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 36019af279c15635fcc3744342614207bd38b609
+Author: Kaisa <45688258+KooEeVee@users.noreply.github.com>
+Date:   Mon Mar 22 20:49:58 2021 +0200
+
+    hakemisto ja kolme tiedostoa luotu
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 008b7192147febbb1b35ec00bf8d9e3d5c292f70
+Author: Kaisa <45688258+KooEeVee@users.noreply.github.com>
+Date:   Mon Mar 22 20:44:38 2021 +0200
+
+    muutoksia tiedostoihin eka.txt ja kolmas.txt
+
+ eka.txt    | 2 +-
+ kolmas.txt | 2 ++
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+commit 810fccdbac471cfd4970b03fa7d0135d9cd4ede9
+Author: Kaisa <45688258+KooEeVee@users.noreply.github.com>
+Date:   Mon Mar 22 20:42:08 2021 +0200
+
+    toinen.txt poistettu, tiedosto.txt uudelleennimetty
+
+ tiedosto.txt => eka.txt | 0
+ toinen.txt              | 1 -
+ 2 files changed, 1 deletion(-)
+
+commit 81b0fdec71b8940ba75d0683ea0b30ac47b05d27
+Author: Kaisa <45688258+KooEeVee@users.noreply.github.com>
+Date:   Mon Mar 22 20:28:19 2021 +0200
+
+    tiedosto.txt muutokset
+
+ tiedosto.txt | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+commit 16f0a68ce4d0a8498267dc920a1c4b1f9c6b5654
+Author: Kaisa <45688258+KooEeVee@users.noreply.github.com>
+Date:   Mon Mar 22 20:18:13 2021 +0200
+
+    hakemisto stuff ja tiedosto neljas.txt luotu
+
+ stuff/neljas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4e0dcfd42e09c5eed342e71ddd1f1efc0d4be800
+Author: Kaisa <45688258+KooEeVee@users.noreply.github.com>
+Date:   Mon Mar 22 20:15:53 2021 +0200
+
+    muutokset tiedostoihin
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit e708b162c7dce92b392f553ad24d20f6ac7dbdac
+Author: Kaisa <45688258+KooEeVee@users.noreply.github.com>
+Date:   Mon Mar 22 20:14:22 2021 +0200
+
+    kolmas.txt luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 3afb65fefdd11f2d11de7dae0d3cb1808b9a6dc5
+Author: Kaisa <45688258+KooEeVee@users.noreply.github.com>
+Date:   Mon Mar 22 20:11:33 2021 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit f4163c8584f8f311030bfa10aa60c1512da4ef37
+Author: Kaisa <45688258+KooEeVee@users.noreply.github.com>
+Date:   Mon Mar 22 20:08:29 2021 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
