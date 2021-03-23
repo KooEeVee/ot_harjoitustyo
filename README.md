@@ -1,4 +1,4 @@
-# Ohjelmistotekniikka Spring 2021
+# Ohjelmistotekniikka, Spring 2021
 
 ## Week 1
 
