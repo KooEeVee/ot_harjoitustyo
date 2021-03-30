@@ -87,10 +87,15 @@ class TestKassapaate(unittest.TestCase):
         self.kassapaate.syo_maukkaasti_kortilla(self.maksukortti)
         self.assertEqual(self.kassapaate.kassassa_rahaa, 100000)
 
-    def test_kortille_ladattaessa_kortin_ja_kassan_saldo_kasvaa(self):
+    def test_kortille_ladattaessa_kortin_ja_kassan_saldo_kasvaa_jos_summa_suurempi_kuin_nolla(self):
         self.kassapaate.lataa_rahaa_kortille(self.maksukortti, 100)
         self.assertEqual(self.maksukortti.saldo, 1100)
         self.assertEqual(self.kassapaate.kassassa_rahaa, 100100)
+
+    def test_kortille_ladattaessa_kortin_ja_kassan_saldo_ei_kasva_jos_summa_pienempi_kuin_nolla(self):
+        self.kassapaate.lataa_rahaa_kortille(self.maksukortti, -1)
+        self.assertEqual(self.maksukortti.saldo, 1000)
+        self.assertEqual(self.kassapaate.kassassa_rahaa, 100000)
 
         
 
