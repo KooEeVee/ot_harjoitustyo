@@ -7,9 +7,9 @@ Application users are able to have short, scheduled excercise breaks while worki
 
 The application pops up random one-minute workouts based on the user's time interval settings.
 
-The basic version of the application contains five different one-minute exercises.
+Basic version of the application contains five different one-minute exercises.
 
-Features
+### Features
 - Registering to the system
 - Logging in to the system
 - Setting the personal workout program:
@@ -20,7 +20,7 @@ Features
 - Skipping a break if needed
 - Simple UI for the popup window and timer
 
-Other development ideas
+### Other development ideas
 - More exercises
 - Possibility to set the exercises in the personal workout program
 - More sophisticated UI for the popup window and timer
