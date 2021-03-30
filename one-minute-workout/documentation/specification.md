@@ -3,7 +3,7 @@
 ## One-Minute Workout
 
 ### Overview
-Application users are able to have short, scheduled excercise breaks while working on their laptops or desktops.
+Application users are able to have short, scheduled exercise breaks while working on their laptops or desktops.
 
 The application pops up random one-minute workouts based on the user's time interval settings.
 
