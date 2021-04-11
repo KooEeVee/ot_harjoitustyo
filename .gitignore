@@ -4,4 +4,6 @@
 /laskarit/viikko2/unicafe/src/tests/__pycache__/
 /laskarit/viikko2/unicafe/htmlcov/
 /laskarit/viikko2/unicafe/.coverage
-
+/one-minute-workout/.pytest_cache/
+/one-minute-workout/src/__pycache__/
+/one-minute-workout/src/tests/__pycache__/
