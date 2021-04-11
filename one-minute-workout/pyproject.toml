@@ -8,6 +8,7 @@ authors = ["Kaisa <45688258+KooEeVee@users.noreply.github.com>"]
 python = "^3.6"
 
 [tool.poetry.dev-dependencies]
+pytest = "^6.2.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
