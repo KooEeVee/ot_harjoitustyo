@@ -7,3 +7,6 @@
 /one-minute-workout/.pytest_cache/
 /one-minute-workout/src/__pycache__/
 /one-minute-workout/src/tests/__pycache__/
+/one-minute-workout/htmlcov/
+/one-minute-workout/.coverage
+/one-minute-workout/documentation/.pytest_cache/

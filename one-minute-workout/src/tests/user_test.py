@@ -3,8 +3,7 @@ from user import User
 
 class TestUser(unittest.TestCase):
     def setUp(self):
-        username = "testname"
-        self.user = User(username)
+        self.user = User("testname")
 
     def test_user_exists(self):
         self.assertNotEqual(self.user, None)
