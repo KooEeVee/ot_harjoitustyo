@@ -11,6 +11,15 @@ Application users are able to have short, scheduled exercise breaks while workin
 ## Installation
 
 Install dependencies: poetry install
-Start the application: poetry run invoke start
-Run the tests: poetry run invoke test
+
+Start application: poetry run invoke start
+
+Run tests: poetry run invoke test
+
 Test coverage report: poetry run invoke coverage-report
+
+## Features week 3
+
+Create user
+
+Print user
