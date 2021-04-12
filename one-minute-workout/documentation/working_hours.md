@@ -10,4 +10,8 @@
 
 ---
 
-12.4.2021 | 1 hour | Installing coverage 
+12.4.2021 | 1 hour | Installing coverage, adding tasks
+
+---
+
+12.4.2021 | 2 hours | Studying about project structure, creating Exercise and Timer classes
