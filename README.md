@@ -11,3 +11,7 @@
 [working_hours.md](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/documentation/working_hours.md)
 
 [specification.md](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/documentation/specification.md)
+
+## Week 3
+
+[one-minute-workout](https://github.com/KooEeVee/ot_harjoitustyo/tree/main/one-minute-workout)
