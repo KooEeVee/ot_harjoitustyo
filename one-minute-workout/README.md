@@ -20,6 +20,8 @@ Test coverage report: poetry run invoke coverage-report
 
 ## Features week 3
 
-Create user
+Registering to the system:
 
-Print user
+- Basic UI for signup (entering username and password)
+- Creating new user
+- Saving new user to [csv file](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/src/users.csv)

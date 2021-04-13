@@ -15,3 +15,7 @@
 ---
 
 12.4.2021 | 2 hours | Studying about project structure, creating Exercise and Timer classes
+
+---
+
+13.4.2021 | 4,5 hours | User save to csv, basic UI for user signup
