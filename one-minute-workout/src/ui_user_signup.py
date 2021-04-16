@@ -1,5 +1,6 @@
-from tkinter import Tk, ttk
+from tkinter import ttk
 from user import User
+
 
 class UIUserSignup:
     def __init__(self, root):
@@ -12,7 +13,8 @@ class UIUserSignup:
         self.username = ttk.Entry(master=self.root)
         password_label = ttk.Label(master=self.root, text="Your password")
         self.password = ttk.Entry(master=self.root)
-        button = ttk.Button(master=self.root, text="Sign up", command=self.button_click_to_csv)
+        button = ttk.Button(master=self.root, text="Sign up",
+                            command=self.button_click_to_csv)
 
         username_label.pack()
         self.username.pack()
@@ -29,4 +31,3 @@ class UIUserSignup:
         goodbye.pack()
         self.username.delete(0, "end")
         self.password.delete(0, "end")
-        

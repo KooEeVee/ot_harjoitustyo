@@ -3,6 +3,7 @@ from tkinter import Tk, ttk
 from user import User
 from ui_user_signup import UIUserSignup
 
+
 def main():
     signup = Tk()
     signup.title("Sign up to One-Minute Workout")
@@ -11,6 +12,6 @@ def main():
     ui.start()
     signup.mainloop()
 
+
 if __name__ == "__main__":
     main()
-
