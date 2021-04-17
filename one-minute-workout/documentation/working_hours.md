@@ -1,5 +1,9 @@
 # Working Hours
 
+### Total
+
+16,5 hours
+
 ---
 
 30.3.2021 | 1 hour | Preliminary specification document, setting up the project repository
@@ -19,3 +23,9 @@
 ---
 
 13.4.2021 | 4,5 hours | User save to csv, basic UI for user signup
+
+---
+
+17.4.2021 | 5 hours | Database and secrets management
+
+---

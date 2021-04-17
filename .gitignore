@@ -10,3 +10,4 @@
 /one-minute-workout/htmlcov/
 /one-minute-workout/.coverage
 /one-minute-workout/documentation/.pytest_cache/
+/one-minute-workout/src/.env
