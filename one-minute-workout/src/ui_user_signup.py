@@ -26,7 +26,7 @@ class UIUserSignup:
         username_value = self.username.get()
         password_value = self.password.get()
         user = User(username_value, password_value)
-        user.newUser()
+        user.new_user_db()
         goodbye = ttk.Label(master=self.root, text="Thank you for signing up!")
         goodbye.pack()
         self.username.delete(0, "end")
