@@ -18,7 +18,13 @@ class User:
         db = Database(DATABASE_ENDPOINT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME)
         db.connect_db()
         db.insert_user(self.username, self.password)
-        db.disconnect_db
+        db.disconnect_db()
+
+    def get_user_db(self, username):
+        db = Database(DATABASE_ENDPOINT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME)
+        db.connect_db()
+        db.select_user(username)
+        db.disconnect_db()
         
     def __str__(self):
         return f"username: {self.username}"
