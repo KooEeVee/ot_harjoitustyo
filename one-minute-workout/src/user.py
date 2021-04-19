@@ -20,10 +20,16 @@ class User:
         db.insert_user(self.username, self.password)
         db.disconnect_db()
 
-    def get_user_db(self, username):
+    def get_username_db(self, username):
         db = Database(DATABASE_ENDPOINT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME)
         db.connect_db()
-        db.select_user(username)
+        self.username = db.select_username(username)
+        db.disconnect_db()
+
+    def get_password_db(self, username):
+        db = Database(DATABASE_ENDPOINT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME)
+        db.connect_db()
+        self.password = db.select_password(username)
         db.disconnect_db()
         
     def __str__(self):

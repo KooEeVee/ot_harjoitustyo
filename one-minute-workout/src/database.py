@@ -28,9 +28,22 @@ class Database:
             except (Exception, psycopg2.DatabaseError) as error:
                 print(error)
 
-    def select_user(self, user_username):
+    def select_username(self, user_username):
         user = (user_username,)
-        query = ("SELECT username, password FROM users WHERE username = (%s)")
+        query = ("SELECT username FROM users WHERE username = (%s)")
+
+        if self.conn is not None:
+            try:
+                self.cur.execute(query, user)
+                self.conn.commit()
+            except (Exception, psycopg2.DatabaseError) as error:
+                print(error)
+
+        return self.cur.fetchone()
+
+    def select_password(self, user_username):
+        user = (user_username,)
+        query = ("SELECT password FROM users WHERE username = (%s)")
         
         if self.conn is not None:
             try:

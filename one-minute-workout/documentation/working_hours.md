@@ -29,3 +29,5 @@
 17.4.2021 | 5 hours | Database and secrets management, studying AWS RDS, PostgreSQL, dotenv, psycopg2
 
 ---
+
+19.4.2021 | 4 hours | Database class fixing, basic UI for user login

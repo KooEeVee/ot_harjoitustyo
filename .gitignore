@@ -11,3 +11,4 @@
 /one-minute-workout/.coverage
 /one-minute-workout/documentation/.pytest_cache/
 /one-minute-workout/src/.env
+/one-minute-workout/src/ui/__pycache__

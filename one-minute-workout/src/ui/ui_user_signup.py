@@ -14,7 +14,7 @@ class UIUserSignup:
         password_label = ttk.Label(master=self.root, text="Your password")
         self.password = ttk.Entry(master=self.root)
         button = ttk.Button(master=self.root, text="Sign up",
-                            command=self.button_click_to_csv)
+                            command=self.button_click_to_db)
 
         username_label.pack()
         self.username.pack()
@@ -22,7 +22,7 @@ class UIUserSignup:
         self.password.pack()
         button.pack()
 
-    def button_click_to_csv(self):
+    def button_click_to_db(self):
         username_value = self.username.get()
         password_value = self.password.get()
         user = User(username_value, password_value)

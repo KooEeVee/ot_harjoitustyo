@@ -1,15 +1,13 @@
 from tkinter import Tk
-from ui_user_signup import UIUserSignup
-from database import Database
-from config import DATABASE_ENDPOINT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME
+from ui.ui_user_login import UIUserLogin
 
 def main():
-    signup = Tk()
-    signup.title("Sign up to One-Minute Workout")
-    signup.geometry("400x150")
-    ui = UIUserSignup(signup)
+    login = Tk()
+    login.title("Log in to One-Minute Workout")
+    login.geometry("400x150")
+    ui = UIUserLogin(login)
     ui.start()
-    signup.mainloop()
+    login.mainloop()
 
     """ db = Database(DATABASE_ENDPOINT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME)
     db.connect_db()
