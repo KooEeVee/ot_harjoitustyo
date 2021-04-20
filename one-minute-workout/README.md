@@ -8,6 +8,8 @@ Application users are able to have short, scheduled exercise breaks while workin
 
 [working_hours.md](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/documentation/working_hours.md)
 
+[architecture.md](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/documentation/architecture.md)
+
 ## Installation
 
 Install dependencies: poetry install
@@ -35,7 +37,7 @@ Backend:
 - PostgreSQL database in AWS RDS
 - Database class and tests
 - DB methods in User class
-- Credentials saved in .env file which is gitignored, so this feature is not in use yet (how to share it?)
+- DB credentials are saved in local .env file which is gitignored, so these db features are not in use yet (how to share the credentials?)
 
 Logging in to the system:
 
