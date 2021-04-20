@@ -2,7 +2,7 @@
 
 ### Total
 
-16,5 hours
+23,5 hours
 
 ---
 
@@ -31,3 +31,7 @@
 ---
 
 19.4.2021 | 4 hours | Database class fixing, basic UI for user login
+
+---
+
+20.4.2021 | 3 hours | Basic UI for login and main view, user vaidation from csv

@@ -1,37 +1,43 @@
-from tkinter import ttk, messagebox
-from ui_user_signup import UIUserSignup
-from ui_user_login import UIUserLogin
+from tkinter import Tk, ttk, messagebox
+from ui.ui_user_signup import UIUserSignup
+from ui.ui_user_login import UIUserLogin
 
 class UIMain:
     def __init__(self, root):
         self.root = root
-
+        self.signup_frame = None
+        self.login_frame = None
 
     def start(self):
 
-        upperframe = ttk.Frame(master=self.root)
-        upperframe.pack()
+        self.signup_frame = ttk.Frame(master=self.root)
+        self.signup_frame.pack()
 
-        lowerframe = ttk.Frame(master=self.root)
-        lowerframe.pack()
+        signup_label = ttk.Label(master=self.signup_frame, text="I'm a new user")
+        signup_button = ttk.Button(master=self.signup_frame, text="Sign up",
+                            command=self.button_click_signup)
 
-    #     signup_label = ttk.Label(master=self.root, text="I'm a new user")
-    #     button = ttk.Button(master=self.root, text="Sign up",
-    #                         command=self.button_click_to_csv)
-    #     password_label = ttk.Label(master=self.root, text="Your password")
-    #     self.password = ttk.Entry(master=self.root)
-    #     button = ttk.Button(master=self.root, text="Sign up",
-    #                         command=self.button_click_to_csv)
+        signup_label.pack()
+        signup_button.pack()
 
-    #     username_label.pack()
-    #     self.username.pack()
-    #     password_label.pack()
-    #     self.password.pack()
-    #     button.pack()
-    
-    # def button_click_signup(self):
-    #     signup = UIUserSignup()
-    #     goodbye = ttk.Label(master=self.root, text="Thank you for signing up!")
-    #     goodbye.pack()
-    #     self.username.delete(0, "end")
-    #     self.password.delete(0, "end")
+        self.login_frame = ttk.Frame(master=self.root)
+        self.login_frame.pack()
+
+        login_label = ttk.Label(master=self.login_frame, text="I already have an account")
+        login_button = ttk.Button(master=self.login_frame, text="Log in",
+                            command=self.button_click_login)
+
+        login_label.pack()
+        login_button.pack()
+
+    def button_click_signup(self):
+        signup = UIUserSignup(self.root)
+        self.signup_frame.destroy()
+        self.login_frame.destroy()
+        signup.start()
+
+    def button_click_login(self):
+        login = UIUserLogin(self.root)
+        self.signup_frame.destroy()
+        self.login_frame.destroy()
+        login.start()    

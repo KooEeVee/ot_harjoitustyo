@@ -10,8 +10,8 @@ The application pops up random one-minute workouts based on the user's time inte
 Basic version of the application contains five different one-minute exercises.
 
 ### Features
-- Registering to the system
-- Logging in to the system
+- Registering to the system / done
+- Logging in to the system / done
 - Setting the personal workout program:
 	* Start time
 	* End time

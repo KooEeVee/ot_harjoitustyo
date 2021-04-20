@@ -35,5 +35,16 @@ Backend:
 - PostgreSQL database in AWS RDS
 - Database class and tests
 - DB methods in User class
-- Credentials saved in .env file which is gitignored, so this feature is not in use yet
+- Credentials saved in .env file which is gitignored, so this feature is not in use yet (how to share it?)
+
+Logging in to the system:
+
+- Basic UI for login (entering username and password)
+- User validation from [csv file](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/src/users.csv)
+
+Main window:
+
+- Basic UI for main window
+- Either Sign up or Log in, no further logic yet
+
 
