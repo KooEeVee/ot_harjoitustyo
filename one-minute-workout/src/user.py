@@ -8,7 +8,7 @@ class User:
         self.username = username
         self.password = password
 
-    #add new user to users.csv file
+    # add new user to users.csv file
     def new_user_csv(self):
         with open("src/users.csv", "a") as f:
             w = csv.writer(f, delimiter=',')
@@ -30,22 +30,25 @@ class User:
 
     # add new user to users table AWS RDS PostgreSQL
     def new_user_db(self):
-        db = Database(DATABASE_ENDPOINT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME)
+        db = Database(DATABASE_ENDPOINT, DATABASE_USERNAME,
+                      DATABASE_PASSWORD, DATABASE_NAME)
         db.connect_db()
         db.insert_user(self.username, self.password)
         db.disconnect_db()
 
     def get_username_db(self, username):
-        db = Database(DATABASE_ENDPOINT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME)
+        db = Database(DATABASE_ENDPOINT, DATABASE_USERNAME,
+                      DATABASE_PASSWORD, DATABASE_NAME)
         db.connect_db()
         self.username = db.select_username(username)
         db.disconnect_db()
 
     def get_password_db(self, username):
-        db = Database(DATABASE_ENDPOINT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME)
+        db = Database(DATABASE_ENDPOINT, DATABASE_USERNAME,
+                      DATABASE_PASSWORD, DATABASE_NAME)
         db.connect_db()
         self.password = db.select_password(username)
         db.disconnect_db()
-        
+
     def __str__(self):
         return f"username: {self.username}"

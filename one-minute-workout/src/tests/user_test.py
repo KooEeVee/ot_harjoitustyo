@@ -1,6 +1,7 @@
 import unittest
 from user import User
 
+
 class TestUser(unittest.TestCase):
     def setUp(self):
         self.user = User("testname", "1234")
@@ -13,5 +14,6 @@ class TestUser(unittest.TestCase):
 
     def test_user_added_to_csv(self):
         self.user.new_user_csv()
-        self.assertEqual(self.user.get_username_csv(self.user.username),True)
-        self.assertEqual(self.user.get_password_csv(self.user.username),self.user.password)
+        self.assertEqual(self.user.get_username_csv(self.user.username), True)
+        self.assertEqual(self.user.get_password_csv(
+            self.user.username), self.user.password)

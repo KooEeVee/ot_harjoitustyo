@@ -2,6 +2,7 @@ from tkinter import Tk, ttk, messagebox
 from ui.ui_user_signup import UIUserSignup
 from ui.ui_user_login import UIUserLogin
 
+
 class UIMain:
     def __init__(self, root):
         self.root = root
@@ -13,9 +14,10 @@ class UIMain:
         self.signup_frame = ttk.Frame(master=self.root)
         self.signup_frame.pack()
 
-        signup_label = ttk.Label(master=self.signup_frame, text="I'm a new user")
+        signup_label = ttk.Label(
+            master=self.signup_frame, text="I'm a new user")
         signup_button = ttk.Button(master=self.signup_frame, text="Sign up",
-                            command=self.button_click_signup)
+                                   command=self.button_click_signup)
 
         signup_label.pack()
         signup_button.pack()
@@ -23,9 +25,10 @@ class UIMain:
         self.login_frame = ttk.Frame(master=self.root)
         self.login_frame.pack()
 
-        login_label = ttk.Label(master=self.login_frame, text="I already have an account")
+        login_label = ttk.Label(master=self.login_frame,
+                                text="I already have an account")
         login_button = ttk.Button(master=self.login_frame, text="Log in",
-                            command=self.button_click_login)
+                                  command=self.button_click_login)
 
         login_label.pack()
         login_button.pack()
@@ -40,4 +43,4 @@ class UIMain:
         login = UIUserLogin(self.root)
         self.signup_frame.destroy()
         self.login_frame.destroy()
-        login.start()    
+        login.start()

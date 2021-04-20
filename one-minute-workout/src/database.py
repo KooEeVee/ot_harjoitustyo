@@ -1,5 +1,6 @@
 import psycopg2
 
+
 class Database:
     def __init__(self, DATABASE_ENDPOINT, DATABASE_USERNAME, DATABASE_PASSWORD, DATABASE_NAME):
         self.endpoint = DATABASE_ENDPOINT
@@ -12,7 +13,8 @@ class Database:
     def connect_db(self):
         if self.conn is None:
             try:
-                self.conn = psycopg2.connect(host=self.endpoint, user=self.username, password=self.password, dbname=self.name)
+                self.conn = psycopg2.connect(
+                    host=self.endpoint, user=self.username, password=self.password, dbname=self.name)
                 self.cur = self.conn.cursor()
             except (Exception, psycopg2.DatabaseError) as error:
                 print(error)
@@ -44,7 +46,7 @@ class Database:
     def select_password(self, user_username):
         user = (user_username,)
         query = ("SELECT password FROM users WHERE username = (%s)")
-        
+
         if self.conn is not None:
             try:
                 self.cur.execute(query, user)

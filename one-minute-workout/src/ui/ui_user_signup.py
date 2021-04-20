@@ -26,10 +26,11 @@ class UIUserSignup:
         username_value = self.username.get()
         password_value = self.password.get()
         user = User(username_value, password_value)
-        if len(username_value) > 0: 
+        if len(username_value) > 0:
             if len(password_value) > 0:
                 user.new_user_csv()
-                goodbye = ttk.Label(master=self.root, text="Thank you for signing up!")
+                goodbye = ttk.Label(
+                    master=self.root, text="Thank you for signing up!")
                 goodbye.pack()
                 self.username.delete(0, "end")
                 self.password.delete(0, "end")
@@ -40,8 +41,6 @@ class UIUserSignup:
             messagebox.showinfo("Username empty", "Please try again")
             self.username.delete(0, "end")
             self.password.delete(0, "end")
-        
-        
 
     def button_click_to_db(self):
         username_value = self.username.get()
