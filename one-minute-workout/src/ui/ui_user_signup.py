@@ -13,20 +13,23 @@ class UIUserSignup:
         self.username = ttk.Entry(master=self.root)
         password_label = ttk.Label(master=self.root, text="Your password")
         self.password = ttk.Entry(master=self.root)
-        button = ttk.Button(master=self.root, text="Sign up",
+        signup_button = ttk.Button(master=self.root, text="Sign up",
                             command=self.button_click_save_to_json)
+        cancel_button = ttk.Button(master=self.root, text="Cancel",
+                            command=self.button_click_to_cancel)
 
         username_label.pack()
         self.username.pack()
         password_label.pack()
         self.password.pack()
-        button.pack()
+        signup_button.pack()
+        cancel_button.pack()
 
     def button_click_save_to_json(self):
         username_value = self.username.get()
         password_value = self.password.get()
         user = User(username_value, password_value)
-        if user.get_user_json(username_value):
+        if user.get_user_json():
             messagebox.showinfo("Username is already taken", "Please choose another")
             self.username.delete(0, "end")
             self.password.delete(0, "end")
@@ -46,6 +49,10 @@ class UIUserSignup:
                 messagebox.showinfo("Username empty", "Please try again")
                 self.username.delete(0, "end")
                 self.password.delete(0, "end")
+
+    def button_click_to_cancel(self):
+        self.username.delete(0, "end")
+        self.password.delete(0, "end")
 
     # def button_click_save_to_csv(self):
     #     username_value = self.username.get()

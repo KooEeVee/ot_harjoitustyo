@@ -1,14 +1,14 @@
 {
     "users": [
         {
-            "username": "mikko",
-            "password": "0000",
+            "username": "Kaisa",
+            "password": "1234",
             "timer_start": "",
             "timer_stop": "",
             "timer_interval": ""
         },
         {
-            "username": "niilo",
+            "username": "mikko",
             "password": "1111",
             "timer_start": "",
             "timer_stop": "",

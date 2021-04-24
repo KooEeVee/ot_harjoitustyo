@@ -33,7 +33,7 @@ class User:
         with open ("src/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
-                if user.get("username") == self.username:
+                if user.get("username") == username:
                     return user.get("password")
                 
 
