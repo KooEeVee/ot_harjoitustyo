@@ -41,3 +41,5 @@
 25.4.2021 | 2 hours | Timer class and UI, studying json
 
 ---
+
+25.4.2021 | 6 hours | User and Timer save in json, Timer UI, Login-Signup-Timer logic
