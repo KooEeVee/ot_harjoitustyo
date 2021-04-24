@@ -13,6 +13,20 @@
             "timer_start": "",
             "timer_stop": "",
             "timer_interval": ""
+        },
+        {
+            "username": "Niilo",
+            "password": "0000",
+            "timer_start": "",
+            "timer_stop": "",
+            "timer_interval": ""
+        },
+        {
+            "username": "kaisa",
+            "password": "1234",
+            "timer_start": "07:20",
+            "timer_stop": "15:05",
+            "timer_interval": "20"
         }
     ]
 }

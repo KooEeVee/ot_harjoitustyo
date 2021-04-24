@@ -4,18 +4,20 @@ from timer import Timer
 from user import User
 
 class UITimer:
-    def __init__(self, root):
+    def __init__(self, root, user):
         self.root = root
+        self.user = user
         self.timer_start_hours = None
         self.timer_start_minutes = None
         self.timer_stop_hours = None
         self.timer_stop_minutes = None
         self.timer_interval = None
-        self.user = None
 
     def start(self):
-        user_label = ttk.Label(master=self.root, text="My username: ")
-        self.user = ttk.Entry(master=self.root)
+        user = User(self.user, "")
+        user_timer = user.get_timer_json
+        timer_label = ttk.Label(master=self.root, text=user_timer)
+        welcome_label = ttk.Label(master=self.root, text="Set your exercise timer")
         self.timer_start_hours = ttk.Entry(master=self.root)
         start_label_h = ttk.Label(master=self.root, text="My exercise time starts at (hours, two digits eg. 07): ")
         self.timer_start_hours = ttk.Entry(master=self.root)
@@ -33,8 +35,8 @@ class UITimer:
         button_cancel = ttk.Button(master=self.root, text="Cancel",
                             command=self.button_click_to_cancel_timer)
 
-        user_label.pack()
-        self.user.pack()
+        timer_label.pack()
+        welcome_label.pack()
         start_label_h.pack()
         self.timer_start_hours.pack()
         start_label_m.pack()
@@ -54,7 +56,7 @@ class UITimer:
         stop_value_h = self.timer_stop_hours.get()
         stop_value_m = self.timer_stop_minutes.get()
         interval_value = self.timer_interval.get()
-        user_value = self.user.get()
+        user_value = self.user#.get()
         timer_start = f"{self.timer_start_hours.get()}:{self.timer_start_minutes.get()}"
         timer_stop = f"{self.timer_stop_hours.get()}:{self.timer_stop_minutes.get()}"
         user = User(user_value, "")

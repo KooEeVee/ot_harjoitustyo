@@ -1,5 +1,6 @@
 from tkinter import ttk, messagebox
 from user import User
+from ui.ui_timer import UITimer
 
 
 class UIUserSignup:
@@ -42,6 +43,9 @@ class UIUserSignup:
                     thankyou.pack()
                     self.username.delete(0, "end")
                     self.password.delete(0, "end")
+                    timer = UITimer(self.root, username_value)  
+                    timer.start()    
+
                 else:
                     messagebox.showinfo("Password empty", "Please try again")
                     self.password.delete(0, "end")
@@ -49,7 +53,8 @@ class UIUserSignup:
                 messagebox.showinfo("Username empty", "Please try again")
                 self.username.delete(0, "end")
                 self.password.delete(0, "end")
-
+        
+        
     def button_click_to_cancel(self):
         self.username.delete(0, "end")
         self.password.delete(0, "end")
