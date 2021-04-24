@@ -1,4 +1,3 @@
-import json
 from application import Application
 
 def main():

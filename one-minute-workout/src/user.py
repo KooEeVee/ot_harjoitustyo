@@ -41,15 +41,10 @@ class User:
             data = json.load(f)
             for user in data["users"]:
                 if user["username"] == self.username:
-                    print(self.username)
                     start = user.get("timer_start")
                     stop = user.get("timer_stop")
                     interval = user.get("timer_interval")
-                    print(start)
-                    print(stop)
-                    print(interval)
-
-                    return f"start time: {start}, end time: {stop}, interval: {interval}"
+                    return f"Start time: {start}, End time: {stop}, Interval: {interval}"
                 
 
     # add new user to users.csv file

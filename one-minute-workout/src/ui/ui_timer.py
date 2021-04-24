@@ -1,5 +1,5 @@
 import datetime
-from tkinter import ttk, messagebox, StringVar
+from tkinter import ttk, messagebox
 from timer import Timer
 from user import User
 
@@ -7,7 +7,6 @@ class UITimer:
     def __init__(self, root, user):
         self.root = root
         self.user = user
-        self.timer_var = StringVar()
         self.timer_start_hours = None
         self.timer_start_minutes = None
         self.timer_stop_hours = None
@@ -76,6 +75,11 @@ class UITimer:
                                     self.timer_stop_hours.delete(0, "end")
                                     self.timer_stop_minutes.delete(0, "end")
                                     self.timer_interval.delete(0, "end")
+                                    timer_label = ttk.Label(master=self.root, text="Here's your timer:")
+                                    user_timer_label = ttk.Label(master=self.root)
+                                    user_timer_label.config(text=self.user.get_timer_json())
+                                    timer_label.pack()
+                                    user_timer_label.pack()
 
                                 else:
                                     messagebox.showinfo("Check the interval minutes", "Please try again")
