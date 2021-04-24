@@ -1,5 +1,5 @@
 import datetime
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox, StringVar
 from timer import Timer
 from user import User
 
@@ -7,6 +7,7 @@ class UITimer:
     def __init__(self, root, user):
         self.root = root
         self.user = user
+        self.timer_var = StringVar()
         self.timer_start_hours = None
         self.timer_start_minutes = None
         self.timer_stop_hours = None
@@ -14,9 +15,6 @@ class UITimer:
         self.timer_interval = None
 
     def start(self):
-        user = User(self.user, "")
-        user_timer = user.get_timer_json
-        timer_label = ttk.Label(master=self.root, text=user_timer)
         welcome_label = ttk.Label(master=self.root, text="Set your exercise timer")
         self.timer_start_hours = ttk.Entry(master=self.root)
         start_label_h = ttk.Label(master=self.root, text="My exercise time starts at (hours, two digits eg. 07): ")
@@ -35,7 +33,6 @@ class UITimer:
         button_cancel = ttk.Button(master=self.root, text="Cancel",
                             command=self.button_click_to_cancel_timer)
 
-        timer_label.pack()
         welcome_label.pack()
         start_label_h.pack()
         self.timer_start_hours.pack()
@@ -79,6 +76,7 @@ class UITimer:
                                     self.timer_stop_hours.delete(0, "end")
                                     self.timer_stop_minutes.delete(0, "end")
                                     self.timer_interval.delete(0, "end")
+
                                 else:
                                     messagebox.showinfo("Check the interval minutes", "Please try again")
                                     self.timer_interval.delete(0, "end")

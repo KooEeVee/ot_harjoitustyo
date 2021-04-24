@@ -1,5 +1,5 @@
+import json
 from application import Application
-from timer import Timer
 
 def main():
 
