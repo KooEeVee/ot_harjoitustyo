@@ -3,3 +3,8 @@ class Timer:
         self.start = start
         self.stop = stop
         self.interval = interval
+
+    
+
+
+

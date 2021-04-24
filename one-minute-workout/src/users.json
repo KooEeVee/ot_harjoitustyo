@@ -1,0 +1,18 @@
+{
+    "users": [
+        {
+            "username": "mikko",
+            "password": "0000",
+            "timer_start": "",
+            "timer_stop": "",
+            "timer_interval": ""
+        },
+        {
+            "username": "niilo",
+            "password": "1111",
+            "timer_start": "",
+            "timer_stop": "",
+            "timer_interval": ""
+        }
+    ]
+}
