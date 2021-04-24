@@ -17,7 +17,7 @@ class Timer:
         with open ("src/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
-                if user == timer_user:
+                if user["username"] == timer_user:
                     user["timer_start"] = timer_start
                     user["timer_stop"] = timer_stop
                     user["timer_interval"] = timer_interval

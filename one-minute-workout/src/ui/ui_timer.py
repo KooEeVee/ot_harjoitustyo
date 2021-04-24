@@ -1,4 +1,4 @@
-import time
+import datetime
 from tkinter import ttk, messagebox
 from timer import Timer
 from user import User
@@ -57,46 +57,42 @@ class UITimer:
         interval_value = self.timer_interval.get()
         user_value = self.user.get()
         user = User(user_value, "")
-        if user.get_user_json():
-            timer = Timer(start_value_h, start_value_m, stop_value_h, stop_value_m, interval_value, user_value)
-            goodbye = ttk.Label(master=self.root, text="Timer is ready, thank you!")
-            goodbye.pack()
-            self.timer_start_hours.delete(0, "end")
-            self.timer_start_minutes.delete(0, "end")
-            self.timer_stop_hours.delete(0, "end")
-            self.timer_stop_minutes.delete(0, "end")
-            self.timer_interval.delete(0, "end")
-        else:
+        timer = Timer(start_value_h, start_value_m, stop_value_h, stop_value_m, interval_value, user_value)
+        if not user.get_user_json():
             messagebox.showinfo("User not found", "Please try again")
             self.user.delete(0, "end")
-        if start_value_h.isdigit() and len(start_value_h) > 0:
-            start_value_h = int(start_value_h)
-        else: 
-            messagebox.showinfo("Check the starting hours", "Please try again")
-            self.timer_start_hours.delete(0, "end")
-        if start_value_m.isdigit() and len(start_value_m) > 0:
-            start_value_m = int(start_value_m)
-        else: 
-            messagebox.showinfo("Check the starting minutes", "Please try again")
-            self.timer_start_minutes.delete(0, "end")
-        if stop_value_h.isdigit() and len(stop_value_h) > 0:
-            stop_value_h = int(stop_value_h)
-        else: 
-            messagebox.showinfo("Check the stopping hours", "Please try again")
-            self.timer_stop_hours.delete(0, "end")
-        if stop_value_m.isdigit() and len(stop_value_m) > 0:
-            stop_value_m = int(stop_value_m)
-        else: 
-            messagebox.showinfo("Check the stopping minutes", "Please try again")
-            self.timer_stop_minutes.delete(0, "end")
-        if interval_value.isdigit() and len(interval_value) > 0:
-            interval_value = int(interval_value)
-        else: 
-            messagebox.showinfo("Check the interval minutes", "Please try again")
-            self.timer_interval.delete(0, "end")
-        timer.save_timer_to_user()
+        else:
+            if start_value_h.isdigit() and len(start_value_h) > 0:
+                if start_value_m.isdigit() and len(start_value_m) > 0:
+                    if stop_value_h.isdigit() and len(stop_value_h) > 0:
+                        if stop_value_m.isdigit() and len(stop_value_m) > 0:
+                            if interval_value.isdigit() and len(interval_value) > 0:
+                                timer.save_timer_to_user()
+                                goodbye = ttk.Label(master=self.root, text="Timer is ready, thank you!")
+                                goodbye.pack()
+                                self.timer_start_hours.delete(0, "end")
+                                self.timer_start_minutes.delete(0, "end")
+                                self.timer_stop_hours.delete(0, "end")
+                                self.timer_stop_minutes.delete(0, "end")
+                                self.timer_interval.delete(0, "end")
+                            else:
+                                messagebox.showinfo("Check the interval minutes", "Please try again")
+                                self.timer_interval.delete(0, "end")
+                        else:
+                            messagebox.showinfo("Check the stopping minutes", "Please try again")
+                            self.timer_stop_minutes.delete(0, "end")
+                    else:
+                        messagebox.showinfo("Check the stopping hours", "Please try again")
+                        self.timer_stop_hours.delete(0, "end")
+                else:
+                    messagebox.showinfo("Check the starting minutes", "Please try again")
+                    self.timer_start_minutes.delete(0, "end")
+            else:
+                messagebox.showinfo("Check the starting hours", "Please try again")
+                self.timer_start_hours.delete(0, "end")
         
     def button_click_to_cancel_timer(self):
+        self.user.delete(0, "end")
         self.timer_start_hours.delete(0, "end")
         self.timer_start_minutes.delete(0, "end")
         self.timer_stop_hours.delete(0, "end")

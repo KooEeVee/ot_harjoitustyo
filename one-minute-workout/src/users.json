@@ -3,9 +3,9 @@
         {
             "username": "Kaisa",
             "password": "1234",
-            "timer_start": "",
-            "timer_stop": "",
-            "timer_interval": ""
+            "timer_start": "0:0",
+            "timer_stop": "0:0",
+            "timer_interval": "0"
         },
         {
             "username": "mikko",
