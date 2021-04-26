@@ -11,9 +11,9 @@ class User:
         user = {
         "username": self.username,
         "password": self.password,
-        "timer_start": "",
-        "timer_stop": "",
-        "timer_interval":""
+        "timer_start": "00:00",
+        "timer_stop": "00:00",
+        "timer_interval":"00"
         }
         with open ("src/users.json", "r") as f:
             data = json.load(f)

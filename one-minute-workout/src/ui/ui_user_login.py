@@ -34,6 +34,8 @@ class UIUserLogin:
             if password_value == user.get_password_json(username_value):
                 goodbye = ttk.Label(master=self.root, text="Login successful, welcome!")
                 goodbye.pack()
+                timer = UITimer(self.root, username_value)
+                timer.start()
             else:
                 messagebox.showinfo("Wrong password", "Please try again")
                 self.password.delete(0, "end")
@@ -41,9 +43,6 @@ class UIUserLogin:
             messagebox.showinfo("User not found", "Please try again")
             self.username.delete(0, "end")
             self.password.delete(0, "end")
-
-        timer = UITimer(self.root, self.username)  
-        timer.start()
 
     def button_click_to_cancel(self):
         self.username.delete(0, "end")

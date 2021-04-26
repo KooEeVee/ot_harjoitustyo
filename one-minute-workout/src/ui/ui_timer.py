@@ -4,9 +4,10 @@ from timer import Timer
 from user import User
 
 class UITimer:
-    def __init__(self, root, user):
+    def __init__(self, root, username):
         self.root = root
-        self.user = user
+        self.username = username
+        self.user = User(self.username, "")
         self.timer_start_hours = None
         self.timer_start_minutes = None
         self.timer_stop_hours = None
@@ -14,7 +15,10 @@ class UITimer:
         self.timer_interval = None
 
     def start(self):
-        welcome_label = ttk.Label(master=self.root, text="Set your exercise timer")
+        timer_label = ttk.Label(master=self.root, text="Here's your timer:")
+        user_timer_label = ttk.Label(master=self.root)
+        user_timer_label.config(text=self.user.get_timer_json())
+        welcome_label = ttk.Label(master=self.root, text="Set or edit your exercise timer")
         self.timer_start_hours = ttk.Entry(master=self.root)
         start_label_h = ttk.Label(master=self.root, text="My exercise time starts at (hours, two digits eg. 07): ")
         self.timer_start_hours = ttk.Entry(master=self.root)
@@ -32,6 +36,8 @@ class UITimer:
         button_cancel = ttk.Button(master=self.root, text="Cancel",
                             command=self.button_click_to_cancel_timer)
 
+        timer_label.pack()
+        user_timer_label.pack()
         welcome_label.pack()
         start_label_h.pack()
         self.timer_start_hours.pack()
@@ -52,57 +58,52 @@ class UITimer:
         stop_value_h = self.timer_stop_hours.get()
         stop_value_m = self.timer_stop_minutes.get()
         interval_value = self.timer_interval.get()
-        user_value = self.user#.get()
+        user_value = self.username
         timer_start = f"{self.timer_start_hours.get()}:{self.timer_start_minutes.get()}"
         timer_stop = f"{self.timer_stop_hours.get()}:{self.timer_stop_minutes.get()}"
-        user = User(user_value, "")
         timer = Timer(timer_start, timer_stop, interval_value, user_value)
-        if not user.get_user_json():
-            messagebox.showinfo("User not found", "Please try again")
-            self.user.delete(0, "end")
-        else:
-            if start_value_h.isdigit() and len(start_value_h) == 2:
-                if start_value_m.isdigit() and len(start_value_m) ==2:
-                    if stop_value_h.isdigit() and len(stop_value_h) ==2:
-                        if stop_value_m.isdigit() and len(stop_value_m) ==2:
-                            if datetime.time(int(start_value_h), int(start_value_m)) < datetime.time(int(stop_value_h), int(stop_value_m)):
-                                if interval_value.isdigit() and len(interval_value) > 0:
-                                    timer.save_timer_to_user()
-                                    goodbye = ttk.Label(master=self.root, text="Timer is ready, thank you!")
-                                    goodbye.pack()
-                                    self.timer_start_hours.delete(0, "end")
-                                    self.timer_start_minutes.delete(0, "end")
-                                    self.timer_stop_hours.delete(0, "end")
-                                    self.timer_stop_minutes.delete(0, "end")
-                                    self.timer_interval.delete(0, "end")
-                                    timer_label = ttk.Label(master=self.root, text="Here's your timer:")
-                                    user_timer_label = ttk.Label(master=self.root)
-                                    user_timer_label.config(text=self.user.get_timer_json())
-                                    timer_label.pack()
-                                    user_timer_label.pack()
-
-                                else:
-                                    messagebox.showinfo("Check the interval minutes", "Please try again")
-                                    self.timer_interval.delete(0, "end")
-                            else:
-                                messagebox.showinfo("Start time must be before stop time", "Please try again")
+        
+        if start_value_h.isdigit() and len(start_value_h) == 2 and int(start_value_h) > 0 and int(start_value_h) < 24:
+            if start_value_m.isdigit() and len(start_value_m) ==2 and int(start_value_m) > 0 and int(start_value_m) < 60:
+                if stop_value_h.isdigit() and len(stop_value_h) ==2 and int(stop_value_h) > 0 and int(stop_value_h) < 24:
+                    if stop_value_m.isdigit() and len(stop_value_m) ==2 and int(stop_value_m) > 0 and int(stop_value_m) < 60:
+                        if datetime.time(int(start_value_h), int(start_value_m)) < datetime.time(int(stop_value_h), int(stop_value_m)):
+                            if interval_value.isdigit() and len(interval_value) > 0:
+                                timer.save_timer_to_user()
+                                goodbye = ttk.Label(master=self.root, text="Timer is ready, thank you!")
+                                goodbye.pack()
+                                self.timer_start_hours.delete(0, "end")
+                                self.timer_start_minutes.delete(0, "end")
                                 self.timer_stop_hours.delete(0, "end")
                                 self.timer_stop_minutes.delete(0, "end")
+                                self.timer_interval.delete(0, "end")
+                                timer_label = ttk.Label(master=self.root, text="Here's your timer:")
+                                user_timer_label = ttk.Label(master=self.root)
+                                user_timer_label.config(text=self.user.get_timer_json())
+                                timer_label.pack()
+                                user_timer_label.pack()
+
+                            else:
+                                messagebox.showinfo("Check the interval minutes", "Please try again")
+                                self.timer_interval.delete(0, "end")
                         else:
-                            messagebox.showinfo("Check the stopping minutes", "Please try again")
+                            messagebox.showinfo("Start time must be before stop time", "Please try again")
+                            self.timer_stop_hours.delete(0, "end")
                             self.timer_stop_minutes.delete(0, "end")
                     else:
-                        messagebox.showinfo("Check the stopping hours", "Please try again")
-                        self.timer_stop_hours.delete(0, "end")
+                        messagebox.showinfo("Check the stopping minutes", "Please try again")
+                        self.timer_stop_minutes.delete(0, "end")
                 else:
-                    messagebox.showinfo("Check the starting minutes", "Please try again")
-                    self.timer_start_minutes.delete(0, "end")
+                    messagebox.showinfo("Check the stopping hours", "Please try again")
+                    self.timer_stop_hours.delete(0, "end")
             else:
-                messagebox.showinfo("Check the starting hours", "Please try again")
-                self.timer_start_hours.delete(0, "end")
+                messagebox.showinfo("Check the starting minutes", "Please try again")
+                self.timer_start_minutes.delete(0, "end")
+        else:
+            messagebox.showinfo("Check the starting hours", "Please try again")
+            self.timer_start_hours.delete(0, "end")
         
     def button_click_to_cancel_timer(self):
-        self.user.delete(0, "end")
         self.timer_start_hours.delete(0, "end")
         self.timer_start_minutes.delete(0, "end")
         self.timer_stop_hours.delete(0, "end")
