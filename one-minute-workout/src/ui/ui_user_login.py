@@ -30,7 +30,7 @@ class UIUserLogin:
         username_value = self.username.get()
         password_value = self.password.get()
         user = User(username_value, password_value)
-        if user.get_user_json():
+        if user.get_username_json():
             if password_value == user.get_password_json(username_value):
                 goodbye = ttk.Label(master=self.root, text="Login successful, welcome!")
                 goodbye.pack()

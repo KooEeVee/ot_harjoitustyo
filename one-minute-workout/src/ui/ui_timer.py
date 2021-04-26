@@ -63,10 +63,10 @@ class UITimer:
         timer_stop = f"{self.timer_stop_hours.get()}:{self.timer_stop_minutes.get()}"
         timer = Timer(timer_start, timer_stop, interval_value, user_value)
         
-        if start_value_h.isdigit() and len(start_value_h) == 2 and int(start_value_h) > 0 and int(start_value_h) < 24:
-            if start_value_m.isdigit() and len(start_value_m) ==2 and int(start_value_m) > 0 and int(start_value_m) < 60:
-                if stop_value_h.isdigit() and len(stop_value_h) ==2 and int(stop_value_h) > 0 and int(stop_value_h) < 24:
-                    if stop_value_m.isdigit() and len(stop_value_m) ==2 and int(stop_value_m) > 0 and int(stop_value_m) < 60:
+        if start_value_h.isdigit() and len(start_value_h) == 2 and int(start_value_h) >= 0 and int(start_value_h) < 24:
+            if start_value_m.isdigit() and len(start_value_m) ==2 and int(start_value_m) >= 0 and int(start_value_m) < 60:
+                if stop_value_h.isdigit() and len(stop_value_h) ==2 and int(stop_value_h) >= 0 and int(stop_value_h) < 24:
+                    if stop_value_m.isdigit() and len(stop_value_m) ==2 and int(stop_value_m) >= 0 and int(stop_value_m) < 60:
                         if datetime.time(int(start_value_h), int(start_value_m)) < datetime.time(int(stop_value_h), int(stop_value_m)):
                             if interval_value.isdigit() and len(interval_value) > 0:
                                 timer.save_timer_to_user()
