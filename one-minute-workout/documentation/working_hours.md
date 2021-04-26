@@ -2,7 +2,7 @@
 
 ### Total
 
-26,5 hours
+27,5 hours
 
 ---
 
@@ -47,3 +47,9 @@
 ---
 
 26.4.2021 | 1 hour | Login-Signup-Timer logic, show timer when logging in and signing up
+
+---
+
+26.4.2021 | 1 hour | User and timer class tests
+
+---

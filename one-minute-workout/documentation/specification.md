@@ -12,7 +12,7 @@ Basic version of the application contains five different one-minute exercises.
 ### Features
 - Registering to the system / done
 - Logging in to the system / done
-- Setting the personal workout program:
+- Setting the personal workout program: / done
 	* Start time
 	* End time
 	* Time interval between workout breaks

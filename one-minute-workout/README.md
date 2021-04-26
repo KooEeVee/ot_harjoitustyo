@@ -49,4 +49,16 @@ Main window:
 - Basic UI for main window
 - Either Sign up or Log in, no further logic yet
 
+## Features week 5
+
+Setting the personal workout program:
+
+- Basic UI for Timer
+- Timer data save with user data
+- Show saved timer data
+
+Backend:
+
+- User and Timer data save in [json file](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/src/users.json)
+
 
