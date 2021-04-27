@@ -2,7 +2,7 @@
 
 ### Total
 
-27,5 hours
+28,5 hours
 
 ---
 
