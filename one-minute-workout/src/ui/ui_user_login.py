@@ -15,9 +15,9 @@ class UIUserLogin:
         password_label = ttk.Label(master=self.root, text="Your password")
         self.password = ttk.Entry(master=self.root)
         login_button = ttk.Button(master=self.root, text="Log in",
-                            command=self.button_click_to_login_json)
+                                  command=self.button_click_to_login_json)
         cancel_button = ttk.Button(master=self.root, text="Cancel",
-                            command=self.button_click_to_cancel)
+                                   command=self.button_click_to_cancel)
 
         username_label.pack()
         self.username.pack()
@@ -30,10 +30,13 @@ class UIUserLogin:
         username_value = self.username.get()
         password_value = self.password.get()
         user = User(username_value, password_value)
-        if user.get_username_json():
+        if user.get_user_json():
             if password_value == user.get_password_json(username_value):
-                goodbye = ttk.Label(master=self.root, text="Login successful, welcome!")
-                goodbye.pack()
+                thankyou = ttk.Label(
+                    master=self.root, text="Login successful, welcome!")
+                thankyou.pack()
+                self.username.delete(0, "end")
+                self.password.delete(0, "end")
                 timer = UITimer(self.root, username_value)
                 timer.start()
             else:
@@ -63,13 +66,12 @@ class UIUserLogin:
     #         messagebox.showinfo("User not found", "Please try again")
     #         self.username.delete(0, "end")
     #         self.password.delete(0, "end")
-    
-    
+
     # def button_click_to_login_db(self):
     #     username_value = self.username.get()
     #     password_value = self.password.get()
     #     user = User(username_value, password_value)
-        
+
     #     if username_value == user.get_username_db(username_value):
     #         if password_value == user.get_password_db(username_value):
     #             goodbye = ttk.Label(master=self.root, text="Login successful, welcome!")
@@ -82,6 +84,3 @@ class UIUserLogin:
     #         messagebox.showinfo("User not found", "Please try again")
     #         self.username.delete(0, "end")
     #         self.password.delete(0, "end")
-
-        
-        

@@ -1,43 +1,44 @@
 import json
 
+
 class User:
     def __init__(self, username, password):
         self.username = username
         self.password = password
 
-
     # add new user to users.json file:
+
     def new_user_json(self):
         user = {
-        "username": self.username,
-        "password": self.password,
-        "timer_start": "00:00",
-        "timer_stop": "00:00",
-        "timer_interval":"00"
+            "username": self.username,
+            "password": self.password,
+            "timer_start": "00:00",
+            "timer_stop": "00:00",
+            "timer_interval": "00"
         }
-        with open ("src/users.json", "r") as f:
+        with open("src/users.json", "r") as f:
             data = json.load(f)
             data["users"].append(user)
-    
-        with open ("src/users.json", "w") as f:
+
+        with open("src/users.json", "w") as f:
             json.dump(data, f, indent=4)
 
     def get_user_json(self):
-        with open ("src/users.json", "r") as f:
+        with open("src/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
                 if user.get("username") == self.username:
                     return True
 
     def get_password_json(self, username):
-        with open ("src/users.json", "r") as f:
+        with open("src/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
                 if user.get("username") == username:
                     return user.get("password")
 
     def get_timer_json(self):
-        with open ("src/users.json", "r") as f:
+        with open("src/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
                 if user["username"] == self.username:
@@ -45,7 +46,6 @@ class User:
                     stop = user.get("timer_stop")
                     interval = user.get("timer_interval")
                     return f"Start time: {start}, End time: {stop}, Interval: {interval}"
-                
 
     # add new user to users.csv file
     # def new_user_csv(self):
@@ -88,7 +88,6 @@ class User:
     #     db.connect_db()
     #     self.password = db.select_password(username)
     #     db.disconnect_db()
-
 
     def __str__(self):
         return f"username: {self.username}"

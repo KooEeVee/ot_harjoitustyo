@@ -3,5 +3,3 @@ class Exercise:
         self.name = None
         self.description = None
         self.image = None
-
-    

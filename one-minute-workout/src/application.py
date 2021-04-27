@@ -3,6 +3,7 @@ from os import path
 from tkinter import Tk
 from ui.ui_main import UIMain
 
+
 class Application:
     def __init__(self):
         self.mainscreen = Tk()
@@ -11,11 +12,11 @@ class Application:
         if path.getsize("src/users.json") == 0:
             data = {}
             data["users"] = []
-            with open ("src/users.json", "w") as f:
+            with open("src/users.json", "w") as f:
                 json.dump(data, f, indent=4)
         else:
             pass
-    
+
     def initialize_ui(self):
         mainscreen = self.mainscreen
         mainscreen.title("Sign up or log in to One-Minute Workout")
@@ -26,4 +27,3 @@ class Application:
 
     def close_ui(self):
         self.mainscreen.destroy()
-        

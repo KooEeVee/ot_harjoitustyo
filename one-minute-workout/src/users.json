@@ -52,6 +52,27 @@
         {
             "username": "testname",
             "password": "1234",
+            "timer_start": "10:10",
+            "timer_stop": "20:20",
+            "timer_interval": "30"
+        },
+        {
+            "username": "Kaisa",
+            "password": "5678",
+            "timer_start": "12:20",
+            "timer_stop": "13:00",
+            "timer_interval": "30"
+        },
+        {
+            "username": "testname",
+            "password": "1234",
+            "timer_start": "10:10",
+            "timer_stop": "20:20",
+            "timer_interval": "30"
+        },
+        {
+            "username": "testname",
+            "password": "1234",
             "timer_start": "00:00",
             "timer_stop": "00:00",
             "timer_interval": "00"

@@ -45,6 +45,3 @@ class UIMain:
         self.signup_frame.destroy()
         self.login_frame.destroy()
         login.start()
-
-    
-        
