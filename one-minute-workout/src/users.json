@@ -76,6 +76,13 @@
             "timer_start": "00:00",
             "timer_stop": "00:00",
             "timer_interval": "00"
+        },
+        {
+            "username": "testi",
+            "password": "testitesti",
+            "timer_start": "00:00",
+            "timer_stop": "00:00",
+            "timer_interval": "00"
         }
     ]
 }
