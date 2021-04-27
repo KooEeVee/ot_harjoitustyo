@@ -53,3 +53,5 @@
 26.4.2021 | 1 hour | User and timer class tests
 
 ---
+
+27.4.2021 | 1 hour | Small fixes, documentation improvement
