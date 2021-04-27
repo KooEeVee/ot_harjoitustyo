@@ -12,6 +12,9 @@
 
 [specification.md](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/documentation/specification.md)
 
-## Week 3
+## Week 3 - 4
 
 [one-minute-workout](https://github.com/KooEeVee/ot_harjoitustyo/tree/main/one-minute-workout)
+
+## Week 5
+[GitHub Release Week5 v.0.1](https://github.com/KooEeVee/ot_harjoitustyo/releases/tag/week5)
