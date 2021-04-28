@@ -8,11 +8,20 @@ class Application:
     def __init__(self):
         self.mainscreen = Tk()
 
-    def initialize_json(self):
+    def initialize_users_json(self):
         if path.getsize("src/users.json") == 0:
             data = {}
             data["users"] = []
             with open("src/users.json", "w") as f:
+                json.dump(data, f, indent=4)
+        else:
+            pass
+
+    def initialize_exercise_json(self):
+        if path.getsize("src/exercises.json") == 0:
+            data = {}
+            data["exercises"] = []
+            with open("src/exercises.json", "w") as f:
                 json.dump(data, f, indent=4)
         else:
             pass

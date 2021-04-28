@@ -9,6 +9,7 @@
 /one-minute-workout/src/tests/__pycache__/
 /one-minute-workout/htmlcov/
 /one-minute-workout/.coverage
+/one-minute-workout/.vscode/
 /one-minute-workout/documentation/.pytest_cache/
 /one-minute-workout/src/.env
 /one-minute-workout/src/ui/__pycache__
