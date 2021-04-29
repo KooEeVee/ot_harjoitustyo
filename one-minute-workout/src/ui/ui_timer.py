@@ -2,6 +2,7 @@ import datetime
 from tkinter import ttk, messagebox
 from timer import Timer
 from user import User
+from ui.ui_exercise import UIExercise
 
 
 class UITimer:
@@ -92,6 +93,9 @@ class UITimer:
                                     text=self.user.get_timer_json())
                                 timer_label.pack()
                                 user_timer_label.pack()
+
+                                exercise = UIExercise(self.root, user_value)
+                                self.root.after(3000, exercise.start())
 
                             else:
                                 messagebox.showinfo(
