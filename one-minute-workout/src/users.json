@@ -3,9 +3,16 @@
         {
             "username": "kaisa",
             "password": "1234",
-            "timer_start": "13:13",
-            "timer_stop": "14:14",
-            "timer_interval": "15"
+            "timer_start": "14:14",
+            "timer_stop": "15:15",
+            "timer_interval": "20"
+        },
+        {
+            "username": "Kaisa",
+            "password": "1234",
+            "timer_start": "05:05",
+            "timer_stop": "06:06",
+            "timer_interval": "10"
         }
     ]
 }

@@ -15,34 +15,41 @@ class UITimer:
         self.timer_stop_hours = None
         self.timer_stop_minutes = None
         self.timer_interval = None
+        self.timer_frame = None
 
     def start(self):
-        timer_label = ttk.Label(master=self.root, text="Here's your timer:")
-        user_timer_label = ttk.Label(master=self.root)
+        self.timer_frame = ttk.Frame(master=self.root)
+        self.timer_frame.pack()
+
+        timer_label = ttk.Label(master=self.timer_frame, text="Here's your timer:")
+        user_timer_label = ttk.Label(master=self.timer_frame)
         user_timer_label.config(text=self.user.get_timer_json())
         welcome_label = ttk.Label(
-            master=self.root, text="Set or edit your exercise timer")
-        self.timer_start_hours = ttk.Entry(master=self.root)
+            master=self.timer_frame, text="Edit your exercise timer")
+        self.timer_start_hours = ttk.Entry(master=self.timer_frame)
         start_label_h = ttk.Label(
-            master=self.root, text="My exercise time starts at (hours, two digits eg. 07): ")
-        self.timer_start_hours = ttk.Entry(master=self.root)
+            master=self.timer_frame, text="My exercise time starts at (hours, two digits eg. 07): ")
+        self.timer_start_hours = ttk.Entry(master=self.timer_frame)
         start_label_m = ttk.Label(
-            master=self.root, text="My exercise time starts at (minutes, two digits eg. 20): ")
-        self.timer_start_minutes = ttk.Entry(master=self.root)
+            master=self.timer_frame, text="My exercise time starts at (minutes, two digits eg. 20): ")
+        self.timer_start_minutes = ttk.Entry(master=self.timer_frame)
         stop_label_h = ttk.Label(
-            master=self.root, text="My exercise time stops at (hours, two digits eg. 15): ")
-        self.timer_stop_hours = ttk.Entry(master=self.root)
+            master=self.timer_frame, text="My exercise time stops at (hours, two digits eg. 15): ")
+        self.timer_stop_hours = ttk.Entry(master=self.timer_frame)
         stop_label_m = ttk.Label(
-            master=self.root, text="My exercise time stops at (minutes, two digits eg. 05): ")
-        self.timer_stop_minutes = ttk.Entry(master=self.root)
+            master=self.timer_frame, text="My exercise time stops at (minutes, two digits eg. 05): ")
+        self.timer_stop_minutes = ttk.Entry(master=self.timer_frame)
         interval_label = ttk.Label(
-            master=self.root, text="My exercise frequency is (minutes): ")
-        self.timer_interval = ttk.Entry(master=self.root)
-        button_apply = ttk.Button(master=self.root, text="Apply",
+            master=self.timer_frame, text="My exercise frequency is (minutes): ")
+        self.timer_interval = ttk.Entry(master=self.timer_frame)
+        button_apply = ttk.Button(master=self.timer_frame, text="Apply",
                                   command=self.button_click_to_apply_timer)
 
-        button_cancel = ttk.Button(master=self.root, text="Cancel",
+        button_cancel = ttk.Button(master=self.timer_frame, text="Cancel",
                                    command=self.button_click_to_cancel_timer)
+
+        button_exercise = ttk.Button(master=self.timer_frame, text="Start exercise",
+                                   command=self.button_click_to_exercise)
 
         timer_label.pack()
         user_timer_label.pack()
@@ -59,6 +66,7 @@ class UITimer:
         self.timer_interval.pack()
         button_apply.pack()
         button_cancel.pack()
+        button_exercise.pack()
 
     def button_click_to_apply_timer(self):
         start_value_h = self.timer_start_hours.get()
@@ -94,9 +102,6 @@ class UITimer:
                                 timer_label.pack()
                                 user_timer_label.pack()
 
-                                exercise = UIExercise(self.root, user_value)
-                                self.root.after(3000, exercise.start())
-
                             else:
                                 messagebox.showinfo(
                                     "Check the interval minutes", "Please try again")
@@ -128,3 +133,8 @@ class UITimer:
         self.timer_stop_hours.delete(0, "end")
         self.timer_stop_minutes.delete(0, "end")
         self.timer_interval.delete(0, "end")
+
+    def button_click_to_exercise(self):
+        exercise = UIExercise(self.root, self.username)
+        exercise.start()
+        self.timer_frame.destroy()

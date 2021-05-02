@@ -2,7 +2,7 @@
 
 ### Total
 
-28,5 hours
+33,5 hours
 
 ---
 
@@ -55,3 +55,14 @@
 ---
 
 27.4.2021 | 1 hour | Small fixes, documentation improvement
+
+---
+
+28.4.2021 | 4 hours | Installed Pillow, worked with exercise class and UI
+
+---
+
+29.4.2021 | 1 hour | Tested function delay
+
+---
+

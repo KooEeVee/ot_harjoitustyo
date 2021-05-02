@@ -8,15 +8,19 @@ class UIUserSignup:
         self.root = root
         self.username = None
         self.password = None
+        self.signup_frame = None
 
     def start(self):
-        username_label = ttk.Label(master=self.root, text="Your username")
-        self.username = ttk.Entry(master=self.root)
-        password_label = ttk.Label(master=self.root, text="Your password")
-        self.password = ttk.Entry(master=self.root)
-        signup_button = ttk.Button(master=self.root, text="Sign up",
+        self.signup_frame = ttk.Frame(master=self.root)
+        self.signup_frame.pack()
+
+        username_label = ttk.Label(master=self.signup_frame, text="Your username")
+        self.username = ttk.Entry(master=self.signup_frame)
+        password_label = ttk.Label(master=self.signup_frame, text="Your password")
+        self.password = ttk.Entry(master=self.signup_frame)
+        signup_button = ttk.Button(master=self.signup_frame, text="Sign up",
                                    command=self.button_click_save_to_json)
-        cancel_button = ttk.Button(master=self.root, text="Cancel",
+        cancel_button = ttk.Button(master=self.signup_frame, text="Cancel",
                                    command=self.button_click_to_cancel)
 
         username_label.pack()
@@ -39,13 +43,12 @@ class UIUserSignup:
             if len(username_value) > 0:
                 if len(password_value) > 0:
                     user.new_user_json()
-                    thankyou = ttk.Label(
-                        master=self.root, text="Thank you for signing up!")
-                    thankyou.pack()
-                    self.username.delete(0, "end")
-                    self.password.delete(0, "end")
+                    # thankyou = ttk.Label(
+                    #     master=self.root, text="Thank you for signing up!")
+                    # thankyou.pack()
                     timer = UITimer(self.root, username_value)
                     timer.start()
+                    self.signup_frame.destroy()
 
                 else:
                     messagebox.showinfo("Password empty", "Please try again")

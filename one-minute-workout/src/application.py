@@ -28,7 +28,7 @@ class Application:
 
     def initialize_ui(self):
         mainscreen = self.mainscreen
-        mainscreen.title("Sign up or log in to One-Minute Workout")
+        mainscreen.title("Welcome to One-Minute Workout")
         mainscreen.geometry("1000x500")
         ui = UIMain(mainscreen)
         ui.start()

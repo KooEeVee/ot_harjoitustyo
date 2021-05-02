@@ -8,15 +8,19 @@ class UIUserLogin:
         self.root = root
         self.username = None
         self.password = None
+        self.login_frame = None
 
     def start(self):
-        username_label = ttk.Label(master=self.root, text="Your username")
-        self.username = ttk.Entry(master=self.root)
-        password_label = ttk.Label(master=self.root, text="Your password")
-        self.password = ttk.Entry(master=self.root)
-        login_button = ttk.Button(master=self.root, text="Log in",
+        self.login_frame = ttk.Frame(master=self.root)
+        self.login_frame.pack()
+
+        username_label = ttk.Label(master=self.login_frame, text="Your username")
+        self.username = ttk.Entry(master=self.login_frame)
+        password_label = ttk.Label(master=self.login_frame, text="Your password")
+        self.password = ttk.Entry(master=self.login_frame)
+        login_button = ttk.Button(master=self.login_frame, text="Log in",
                                   command=self.button_click_to_login_json)
-        cancel_button = ttk.Button(master=self.root, text="Cancel",
+        cancel_button = ttk.Button(master=self.login_frame, text="Cancel",
                                    command=self.button_click_to_cancel)
 
         username_label.pack()
@@ -32,13 +36,13 @@ class UIUserLogin:
         user = User(username_value, password_value)
         if user.get_user_json():
             if password_value == user.get_password_json(username_value):
-                thankyou = ttk.Label(
-                    master=self.root, text="Login successful, welcome!")
-                thankyou.pack()
-                self.username.delete(0, "end")
-                self.password.delete(0, "end")
+                # thankyou = ttk.Label(
+                #     master=self.root, text="Login successful, welcome!")
+                # thankyou.pack()
                 timer = UITimer(self.root, username_value)
                 timer.start()
+                self.login_frame.destroy()
+                
             else:
                 messagebox.showinfo("Wrong password", "Please try again")
                 self.password.delete(0, "end")
@@ -50,6 +54,7 @@ class UIUserLogin:
     def button_click_to_cancel(self):
         self.username.delete(0, "end")
         self.password.delete(0, "end")
+             
 
     # def button_click_to_login_csv(self):
     #     username_value = self.username.get()
