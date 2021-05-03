@@ -47,6 +47,30 @@ class User:
                     interval = user.get("timer_interval")
                     return f"Start time: {start}, End time: {stop}, Interval: {interval}"
 
+    def get_timer_start(self):
+        with open("src/users.json", "r") as f:
+            data = json.load(f)
+            for user in data["users"]:
+                if user["username"] == self.username:
+                    start = user.get("timer_start")
+                    return start
+
+    def get_timer_stop(self):
+        with open("src/users.json", "r") as f:
+            data = json.load(f)
+            for user in data["users"]:
+                if user["username"] == self.username:
+                    stop = user.get("timer_stop")
+                    return stop
+
+    def get_timer_interval(self):
+        with open("src/users.json", "r") as f:
+            data = json.load(f)
+            for user in data["users"]:
+                if user["username"] == self.username:
+                    interval = user.get("timer_interval")
+                    return interval
+
     # add new user to users.csv file
     # def new_user_csv(self):
     #     with open("src/users.csv", "a") as f:

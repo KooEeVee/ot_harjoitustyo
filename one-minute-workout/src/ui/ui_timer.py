@@ -1,7 +1,8 @@
 import datetime
+import time
 from tkinter import ttk, messagebox
-from timer import Timer
 from user import User
+from timer import Timer
 from ui.ui_exercise import UIExercise
 
 
@@ -16,6 +17,8 @@ class UITimer:
         self.timer_stop_minutes = None
         self.timer_interval = None
         self.timer_frame = None
+        self.quit_frame = None
+        self.status_frame = None
 
     def start(self):
         self.timer_frame = ttk.Frame(master=self.root)
@@ -68,6 +71,17 @@ class UITimer:
         button_cancel.pack()
         button_exercise.pack()
 
+        self.status_frame = ttk.Frame(master=self.root)
+        self.status_frame.pack()
+
+        self.quit_frame = ttk.Frame(master=self.root)
+        self.quit_frame.pack()
+
+        button_quit = ttk.Button(master=self.quit_frame, text="Quit the application",
+                                   command=self.button_click_to_quit)
+
+        button_quit.pack()
+
     def button_click_to_apply_timer(self):
         start_value_h = self.timer_start_hours.get()
         start_value_m = self.timer_start_minutes.get()
@@ -86,9 +100,9 @@ class UITimer:
                         if datetime.time(int(start_value_h), int(start_value_m)) < datetime.time(int(stop_value_h), int(stop_value_m)):
                             if interval_value.isdigit() and len(interval_value) > 0 and int(interval_value) > 0:
                                 timer.save_timer_to_user()
-                                goodbye = ttk.Label(
-                                    master=self.root, text="Timer is ready, thank you!")
-                                goodbye.pack()
+                                # goodbye = ttk.Label(
+                                #     master=self.root, text="Timer is ready, thank you!")
+                                # goodbye.pack()
                                 self.timer_start_hours.delete(0, "end")
                                 self.timer_start_minutes.delete(0, "end")
                                 self.timer_stop_hours.delete(0, "end")
@@ -135,6 +149,14 @@ class UITimer:
         self.timer_interval.delete(0, "end")
 
     def button_click_to_exercise(self):
-        exercise = UIExercise(self.root, self.username)
-        exercise.start()
+        ttimer_label = ttk.Label(master=self.status_frame, text="Exercise schedule running")
+        ttimer_label.pack()
         self.timer_frame.destroy()
+        self.root.iconify()
+        exercise = UIExercise(self.root)
+        exercise.start()
+
+    def button_click_to_quit(self):
+        self.root.destroy()
+        
+        

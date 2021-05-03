@@ -1,19 +1,26 @@
-from threading import Timer
 # from datetime import datetime
 # import time
+# from user import User
+# from exercise import Exercise
+# from ui.ui_exercise import UIExercise
 
 # class ThreadingTimer:
-#     def __init__(self):
+#     def __init__(self, username):
 #         self.timer_start = None
 #         self.timer_stop = None
 #         self.interval = None
+#         self.username = username
+#         self.number = None
+#         self.user = User(self.username, "")
 
-#     def workout_schedule(self):
+#     def exercise_wait_time(self):
 #         now = datetime.now()
-#         start_time = self.timer_start
-#         wait_time = start_time - now
-#         time.sleep(wait_time)
+#         user_start_time_string = f"{now.year} {now.month} {now.day} {self.user.get_timer_start()}"
+#         user_start_time = datetime.strptime(user_start_time_string, "%Y %m %d %H:%M")
+#         user_wait_time = user_start_time - now
+#         return user_wait_time
 
-
-#     t = Timer(wait_time, self.exercise_timer())
+#     def exercise_interval_time(self):
+#         self.interval = self.user.get_timer_interval()
+#         return self.interval
 

@@ -61,4 +61,10 @@ Backend:
 
 - User and Timer data save in [json file](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/src/users.json)
 
+## Features week 6
+
+- User logic improvements: Login/Signup --> Timer --> Exercise
+- Exercise UI with 5 example exercises
+- Random exercise starts with exercise button click and closes after 60 seconds
+
 

@@ -18,7 +18,7 @@ Basic version of the application contains five different one-minute exercises.
 	* Time interval between workout breaks
 - Snoozing a break if needed
 - Skipping a break if needed
-- Simple UI for the popup window and timer
+- Simple UI for the popup window and timer / done
 
 ### Other development ideas
 - More exercises

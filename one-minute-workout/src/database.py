@@ -72,3 +72,6 @@ class Database:
         if self.conn is not None:
             self.cur.close()
             self.conn.close()
+
+
+

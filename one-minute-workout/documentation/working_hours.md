@@ -2,7 +2,7 @@
 
 ### Total
 
-33,5 hours
+39,5 hours
 
 ---
 
@@ -65,4 +65,6 @@
 29.4.2021 | 1 hour | Tested function delay
 
 ---
+
+2.5.2021 | 6 hours | Studying and testing different scheduling methods
 

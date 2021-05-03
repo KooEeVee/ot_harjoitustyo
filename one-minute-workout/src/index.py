@@ -1,5 +1,4 @@
 from application import Application
-from exercise import Exercise
 
 def main():
 
