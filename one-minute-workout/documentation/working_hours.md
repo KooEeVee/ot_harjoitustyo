@@ -2,7 +2,7 @@
 
 ### Total
 
-39,5 hours
+44,5 hours
 
 ---
 
@@ -67,4 +67,12 @@
 ---
 
 2.5.2021 | 6 hours | Studying and testing different scheduling methods
+
+---
+
+3.5.2021 | 3 hours | Studying and testing different scheduling methods
+
+---
+
+4.5.2021 | 2 hours | Documentation improvements
 
