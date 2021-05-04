@@ -3,8 +3,9 @@ class Exercise:
 
         Attributes:
             number (int): exercise index number which is common for text and image
-        
+
         """
+
     def __init__(self, number):
         """Class constructor to create new exercise.
 
@@ -26,7 +27,7 @@ class Exercise:
         with open(textfile, "r") as f:
             text = f.read()
             return text
-            
+
     def get_exercise_image(self):
         """Get exercise image from exercises folder.
 

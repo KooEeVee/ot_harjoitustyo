@@ -24,7 +24,8 @@ class UITimer:
         self.timer_frame = ttk.Frame(master=self.root)
         self.timer_frame.pack()
 
-        timer_label = ttk.Label(master=self.timer_frame, text="Here's your timer:")
+        timer_label = ttk.Label(master=self.timer_frame,
+                                text="Here's your timer:")
         user_timer_label = ttk.Label(master=self.timer_frame)
         user_timer_label.config(text=self.user.get_timer_json())
         welcome_label = ttk.Label(
@@ -52,7 +53,7 @@ class UITimer:
                                    command=self.button_click_to_cancel_timer)
 
         button_exercise = ttk.Button(master=self.timer_frame, text="Start exercise",
-                                   command=self.button_click_to_exercise)
+                                     command=self.button_click_to_exercise)
 
         timer_label.pack()
         user_timer_label.pack()
@@ -78,7 +79,7 @@ class UITimer:
         self.quit_frame.pack()
 
         button_quit = ttk.Button(master=self.quit_frame, text="Quit the application",
-                                   command=self.button_click_to_quit)
+                                 command=self.button_click_to_quit)
 
         button_quit.pack()
 
@@ -149,7 +150,8 @@ class UITimer:
         self.timer_interval.delete(0, "end")
 
     def button_click_to_exercise(self):
-        ttimer_label = ttk.Label(master=self.status_frame, text="Exercise schedule running")
+        ttimer_label = ttk.Label(
+            master=self.status_frame, text="Exercise schedule running")
         ttimer_label.pack()
         self.timer_frame.destroy()
         self.root.iconify()
@@ -158,5 +160,3 @@ class UITimer:
 
     def button_click_to_quit(self):
         self.root.destroy()
-        
-        

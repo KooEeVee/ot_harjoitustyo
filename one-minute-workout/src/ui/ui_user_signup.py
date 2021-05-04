@@ -14,9 +14,11 @@ class UIUserSignup:
         self.signup_frame = ttk.Frame(master=self.root)
         self.signup_frame.pack()
 
-        username_label = ttk.Label(master=self.signup_frame, text="Your username")
+        username_label = ttk.Label(
+            master=self.signup_frame, text="Your username")
         self.username = ttk.Entry(master=self.signup_frame)
-        password_label = ttk.Label(master=self.signup_frame, text="Your password")
+        password_label = ttk.Label(
+            master=self.signup_frame, text="Your password")
         self.password = ttk.Entry(master=self.signup_frame)
         signup_button = ttk.Button(master=self.signup_frame, text="Sign up",
                                    command=self.button_click_save_to_json)

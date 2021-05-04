@@ -14,9 +14,11 @@ class UIUserLogin:
         self.login_frame = ttk.Frame(master=self.root)
         self.login_frame.pack()
 
-        username_label = ttk.Label(master=self.login_frame, text="Your username")
+        username_label = ttk.Label(
+            master=self.login_frame, text="Your username")
         self.username = ttk.Entry(master=self.login_frame)
-        password_label = ttk.Label(master=self.login_frame, text="Your password")
+        password_label = ttk.Label(
+            master=self.login_frame, text="Your password")
         self.password = ttk.Entry(master=self.login_frame)
         login_button = ttk.Button(master=self.login_frame, text="Log in",
                                   command=self.button_click_to_login_json)
@@ -42,7 +44,7 @@ class UIUserLogin:
                 timer = UITimer(self.root, username_value)
                 timer.start()
                 self.login_frame.destroy()
-                
+
             else:
                 messagebox.showinfo("Wrong password", "Please try again")
                 self.password.delete(0, "end")
@@ -54,7 +56,6 @@ class UIUserLogin:
     def button_click_to_cancel(self):
         self.username.delete(0, "end")
         self.password.delete(0, "end")
-             
 
     # def button_click_to_login_csv(self):
     #     username_value = self.username.get()

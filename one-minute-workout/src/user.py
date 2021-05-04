@@ -9,7 +9,7 @@ class User:
             username (String): username that user sets in signup process
             password (String): password thatuser sets in login process
         """
-       
+
         self.username = username
         self.password = password
         """Class constructor to create new user.
@@ -18,7 +18,6 @@ class User:
             username (String): username that user sets in signup process
             password (String): password thatuser sets in login process
         """
-
 
     def new_user_json(self):
         """Save new user in users.json file.

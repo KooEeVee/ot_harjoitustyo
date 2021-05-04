@@ -1,6 +1,7 @@
 import unittest
 from exercise import Exercise
 
+
 class TestExercise(unittest.TestCase):
     def setUp(self):
         self.exercise = Exercise("1")

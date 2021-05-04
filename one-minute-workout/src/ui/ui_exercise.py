@@ -3,6 +3,7 @@ from tkinter import ttk, Toplevel
 from PIL import Image, ImageTk
 from exercise import Exercise
 
+
 class UIExercise:
     def __init__(self, root):
         self.root = root

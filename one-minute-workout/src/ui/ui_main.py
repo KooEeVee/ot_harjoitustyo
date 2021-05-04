@@ -38,7 +38,6 @@ class UIMain:
         # self.exercise_frame = ttk.Frame(master=self.root)
         # self.exercise_frame.pack()
 
-    
         # exercise_button = ttk.Button(master=self.login_frame, text="Check",
         #                           command=self.button_click_exercise)
 
