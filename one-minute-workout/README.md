@@ -10,6 +10,8 @@ Application users are able to have short, scheduled exercise breaks while workin
 
 [architecture.md](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/documentation/architecture.md)
 
+[user_faq.md](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/documentation/user_faq.md)
+
 ## Installation
 
 Install dependencies: poetry install
