@@ -18,3 +18,7 @@
 
 ## Week 5
 [GitHub Release Week5 v.0.1](https://github.com/KooEeVee/ot_harjoitustyo/releases/tag/week5)
+
+## Week 6
+
+[GitHub Release Week6 v.0.2](https://github.com/KooEeVee/ot_harjoitustyo/releases/tag/week6)
