@@ -3,12 +3,27 @@ import json
 
 class User:
     def __init__(self, username, password):
+        """Class to save and update user data.
+
+        Attributes:
+            username (String): username that user sets in signup process
+            password (String): password thatuser sets in login process
+        """
+       
         self.username = username
         self.password = password
+        """Class constructor to create new user.
 
-    # add new user to users.json file:
+        Args:
+            username (String): username that user sets in signup process
+            password (String): password thatuser sets in login process
+        """
+
 
     def new_user_json(self):
+        """Save new user in users.json file.
+
+        """
         user = {
             "username": self.username,
             "password": self.password,
@@ -24,6 +39,11 @@ class User:
             json.dump(data, f, indent=4)
 
     def get_user_json(self):
+        """Check if username already exists in users.json file.
+
+        Returns:
+            [Boolean]: True if username already exists
+        """
         with open("src/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
@@ -31,6 +51,14 @@ class User:
                     return True
 
     def get_password_json(self, username):
+        """Get user's password.
+
+        Args:
+            username (String): username saved in users.json file
+
+        Returns:
+            [String]: password saved with the username in users.json file
+        """
         with open("src/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:

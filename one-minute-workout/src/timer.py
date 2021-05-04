@@ -3,12 +3,32 @@ import json
 
 class Timer:
     def __init__(self, start, stop, interval, username):
+        """Class to save and update timer data.
+
+        Attributes:
+            start (String): timer start time HH:MM
+            stop (String): timer stop time HH:MM
+            interval (String): timer interval
+            username (String): username saved in the users.json file
+
+        """
         self.timer_start = start
         self.timer_stop = stop
         self.interval = interval
         self.username = username
+        """Class constructor to create new timer.
+
+        Args:
+            start (String): timer start time HH:MM
+            stop (String): timer stop time HH:MM
+            interval (String): timer interval
+            username (String): username saved in the users.json file
+        """
 
     def save_timer_to_user(self):
+        """Save timer data to user data in users.json file.
+
+        """
         with open("src/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
@@ -21,6 +41,11 @@ class Timer:
             json.dump(data, f, indent=4)
 
     def get_timer_from_user(self):
+        """Get timer data from user saved in users.json file.
+
+        Returns:
+            [String]: Start time: 00:00, End time: 00:00, Interval: 00"
+        """
         with open("src/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
