@@ -2,7 +2,7 @@ import json
 
 
 class Timer:
-    def __init__(self, start, stop, interval, username):
+    def __init__(self, stop, interval, username):
         """Class to save and update timer data.
 
         Attributes:
@@ -12,7 +12,7 @@ class Timer:
             username (String): username saved in the users.json file
 
         """
-        self.timer_start = start
+        # self.timer_start = start
         self.timer_stop = stop
         self.interval = interval
         self.username = username
@@ -33,7 +33,7 @@ class Timer:
             data = json.load(f)
             for user in data["users"]:
                 if user["username"] == self.username:
-                    user["timer_start"] = self.timer_start
+                    # user["timer_start"] = self.timer_start
                     user["timer_stop"] = self.timer_stop
                     user["timer_interval"] = self.interval
 
@@ -50,7 +50,7 @@ class Timer:
             data = json.load(f)
             for user in data["users"]:
                 if user["username"] == self.username:
-                    start = user.get("timer_start")
+                    # start = user.get("timer_start")
                     end = user.get("timer_stop")
                     interval = user.get("timer_interval")
-                    return f"Start time: {start}, End time: {end}, Interval: {interval}"
+                    return f"End time: {end}, Interval: {interval}"

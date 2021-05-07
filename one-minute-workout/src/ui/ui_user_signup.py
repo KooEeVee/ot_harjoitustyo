@@ -2,7 +2,6 @@ from tkinter import ttk, messagebox
 from user import User
 from ui.ui_timer import UITimer
 
-
 class UIUserSignup:
     def __init__(self, root):
         self.root = root
@@ -17,18 +16,23 @@ class UIUserSignup:
         username_label = ttk.Label(
             master=self.signup_frame, text="Your username")
         self.username = ttk.Entry(master=self.signup_frame)
+
+        username_label.pack()
+        self.username.pack()
+
         password_label = ttk.Label(
             master=self.signup_frame, text="Your password")
         self.password = ttk.Entry(master=self.signup_frame)
+
+        password_label.pack()
+        self.password.pack()
+
         signup_button = ttk.Button(master=self.signup_frame, text="Sign up",
                                    command=self.button_click_save_to_json)
         cancel_button = ttk.Button(master=self.signup_frame, text="Cancel",
                                    command=self.button_click_to_cancel)
 
-        username_label.pack()
-        self.username.pack()
-        password_label.pack()
-        self.password.pack()
+        
         signup_button.pack()
         cancel_button.pack()
 
@@ -63,6 +67,8 @@ class UIUserSignup:
     def button_click_to_cancel(self):
         self.username.delete(0, "end")
         self.password.delete(0, "end")
+
+
 
     # def button_click_save_to_csv(self):
     #     username_value = self.username.get()

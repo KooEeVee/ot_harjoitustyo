@@ -26,7 +26,7 @@ class User:
         user = {
             "username": self.username,
             "password": self.password,
-            "timer_start": "00:00",
+            # "timer_start": "00:00",
             "timer_stop": "00:00",
             "timer_interval": "00"
         }
@@ -69,18 +69,18 @@ class User:
             data = json.load(f)
             for user in data["users"]:
                 if user["username"] == self.username:
-                    start = user.get("timer_start")
+                    # start = user.get("timer_start")
                     stop = user.get("timer_stop")
                     interval = user.get("timer_interval")
-                    return f"Start time: {start}, End time: {stop}, Interval: {interval}"
+                    return f"End time: {stop}, Interval: {interval}"
 
-    def get_timer_start(self):
-        with open("src/users.json", "r") as f:
-            data = json.load(f)
-            for user in data["users"]:
-                if user["username"] == self.username:
-                    start = user.get("timer_start")
-                    return start
+    # def get_timer_start(self):
+    #     with open("src/users.json", "r") as f:
+    #         data = json.load(f)
+    #         for user in data["users"]:
+    #             if user["username"] == self.username:
+    #                 start = user.get("timer_start")
+    #                 return start
 
     def get_timer_stop(self):
         with open("src/users.json", "r") as f:
