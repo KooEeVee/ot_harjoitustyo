@@ -30,11 +30,11 @@ class User:
             "timer_stop": "00:00",
             "timer_interval": "00"
         }
-        with open("src/users.json", "r") as f:
+        with open("src/db/users.json", "r") as f:
             data = json.load(f)
             data["users"].append(user)
 
-        with open("src/users.json", "w") as f:
+        with open("src/db/users.json", "w") as f:
             json.dump(data, f, indent=4)
 
     def get_user_json(self):
@@ -43,7 +43,7 @@ class User:
         Returns:
             [Boolean]: True if username already exists
         """
-        with open("src/users.json", "r") as f:
+        with open("src/db/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
                 if user.get("username") == self.username:
@@ -58,14 +58,14 @@ class User:
         Returns:
             [String]: password saved with the username in users.json file
         """
-        with open("src/users.json", "r") as f:
+        with open("src/db/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
                 if user.get("username") == username:
                     return user.get("password")
 
     def get_timer_json(self):
-        with open("src/users.json", "r") as f:
+        with open("src/db/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
                 if user["username"] == self.username:
@@ -83,7 +83,7 @@ class User:
     #                 return start
 
     def get_timer_stop(self):
-        with open("src/users.json", "r") as f:
+        with open("src/db/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
                 if user["username"] == self.username:
@@ -91,7 +91,7 @@ class User:
                     return stop
 
     def get_timer_interval(self):
-        with open("src/users.json", "r") as f:
+        with open("src/db/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
                 if user["username"] == self.username:

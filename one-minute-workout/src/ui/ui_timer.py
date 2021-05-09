@@ -1,6 +1,3 @@
-import datetime
-import time
-import threading
 from tkinter import ttk, messagebox
 from user import User
 from timer import Timer
@@ -71,28 +68,28 @@ class UITimer:
         interval_label.pack()
         self.timer_interval.pack()
 
-        button_apply = ttk.Button(master=self.set_timer_frame, text="Apply timer",
+        apply_button = ttk.Button(master=self.set_timer_frame, text="Apply timer",
                                   command=self.apply_timer)
 
-        button_cancel = ttk.Button(master=self.set_timer_frame, text="Cancel",
+        cancel_button = ttk.Button(master=self.set_timer_frame, text="Cancel",
                                    command=self.cancel_timer)
 
-        button_apply.pack(pady=10)
-        button_cancel.pack(pady=10)
+        apply_button.pack(pady=10)
+        cancel_button.pack(pady=10)
 
         self.exercise_frame = ttk.Frame(master=self.root)
         self.exercise_frame.pack()
 
         exercise_label = ttk.Label(master=self.exercise_frame,
                                    text="Start the One-Minute-Workout", font=("Helvetica", 12))
-        button_exercise = ttk.Button(master=self.exercise_frame, text="Start exercise",
+        exercise_button = ttk.Button(master=self.exercise_frame, text="Start exercise",
                                      command=self.start_exercise)
 
         # button_exercise = ttk.Button(master=self.exercise_frame, text="Start exercise",
         #                              command=threading.Thread(target=self.start_exercise).start())
 
         exercise_label.pack()
-        button_exercise.pack(pady=10)
+        exercise_button.pack(pady=10)
 
         self.status_frame = ttk.Frame(master=self.root)
         self.status_frame.pack()

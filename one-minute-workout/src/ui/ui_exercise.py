@@ -2,8 +2,6 @@ import random
 from tkinter import ttk, Toplevel
 from PIL import Image, ImageTk
 from exercise import Exercise
-# from counter import Counter
-
 
 class UIExercise:
     def __init__(self, root):
@@ -38,27 +36,4 @@ class UIExercise:
         image_label.pack()
         
         self.top.after(60000, self.top.destroy)
-
-
-    # def new_exercise(self):
-    #     exercise = UIExercise(self.root)
-    #     exercise.start()
-
-        # self.text_frame = ttk.Frame(master=self.top)
-        # self.text_frame.pack()
-
-        # text_label = ttk.Label(master=self.text_frame, font=("Helvetica", 12))
-        # text_label.config(text=self.exercise.get_exercise_text())
-        # text_label.pack(pady=20)
-
-        # self.image_frame = ttk.Frame(master=self.top)
-        # self.image_frame.pack()
-        # image_file = f'src/exercises/{self.number}.png'
-        # global image
-        # image = Image.open(image_file)
-        # render = ImageTk.PhotoImage(image)
-        # image_label = ttk.Label(master=self.image_frame, image=render)
-        # image.image = render
-        # image_label.pack()
-
    

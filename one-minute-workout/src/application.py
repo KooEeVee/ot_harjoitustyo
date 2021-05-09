@@ -9,10 +9,10 @@ class Application:
         self.mainscreen = Tk()
 
     def initialize_users_json(self):
-        if path.getsize("src/users.json") == 0:
+        if path.getsize("src/db/users.json") == 0:
             data = {}
             data["users"] = []
-            with open("src/users.json", "w") as f:
+            with open("src/db/users.json", "w") as f:
                 json.dump(data, f, indent=4)
         else:
             pass
@@ -39,5 +39,5 @@ class Application:
         ui_main.start()
         mainscreen.mainloop()
 
-    def close_ui(self):
-        self.mainscreen.destroy()
+    # def close_ui(self):
+    #     self.mainscreen.destroy()

@@ -1,8 +1,6 @@
 from tkinter import Tk, ttk, messagebox
 from ui.ui_user_signup import UIUserSignup
 from ui.ui_user_login import UIUserLogin
-# from ui.ui_exercise import UIExercise
-
 
 class UIMain:
     def __init__(self, root):

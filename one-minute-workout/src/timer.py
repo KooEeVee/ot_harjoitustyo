@@ -29,7 +29,7 @@ class Timer:
         """Save timer data to user data in users.json file.
 
         """
-        with open("src/users.json", "r") as f:
+        with open("src/db/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
                 if user["username"] == self.username:
@@ -37,7 +37,7 @@ class Timer:
                     user["timer_stop"] = self.timer_stop
                     user["timer_interval"] = self.interval
 
-        with open("src/users.json", "w") as f:
+        with open("src/db/users.json", "w") as f:
             json.dump(data, f, indent=4)
 
     def get_timer_from_user(self):
@@ -46,7 +46,7 @@ class Timer:
         Returns:
             [String]: Start time: 00:00, End time: 00:00, Interval: 00"
         """
-        with open("src/users.json", "r") as f:
+        with open("src/db/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
                 if user["username"] == self.username:
