@@ -1,8 +1,4 @@
 from application import Application
-from counter import Counter
-from ui.ui_exercise import UIExercise
-from tkinter import Tk
-
 
 def main():
 

@@ -10,6 +10,7 @@ class UITimer:
         self.root = root
         self.username = username
         self.user = User(self.username, "")
+        self.user_timer_label = None
         self.timer_stop_hours = None
         self.timer_stop_minutes = None
         self.timer_interval = None
@@ -25,12 +26,12 @@ class UITimer:
 
         timer_label = ttk.Label(master=self.timer_frame,
                                 text="Here's your timer:", font=("Helvetica", 12))
-        user_timer_label = ttk.Label(master=self.timer_frame)
-        user_timer_label.config(
+        self.user_timer_label = ttk.Label(master=self.timer_frame)
+        self.user_timer_label.config(
             text=self.user.get_timer_json(), font=("Helvetica", 16))
 
         timer_label.pack(pady=10)
-        user_timer_label.pack()
+        self.user_timer_label.pack()
 
         # start_label_h = ttk.Label(
         #     master=self.timer_frame, text="My exercise time starts at (hours, two digits eg. 07): ")
@@ -71,39 +72,36 @@ class UITimer:
         apply_button = ttk.Button(master=self.set_timer_frame, text="Apply timer",
                                   command=self.apply_timer)
 
-        cancel_button = ttk.Button(master=self.set_timer_frame, text="Cancel",
+        cancel_button = ttk.Button(master=self.set_timer_frame, text="Cancel timer",
                                    command=self.cancel_timer)
 
         apply_button.pack(pady=10)
         cancel_button.pack(pady=10)
 
+        self.status_frame = ttk.Frame(master=self.root)
+        self.status_frame.pack()
+
         self.exercise_frame = ttk.Frame(master=self.root)
         self.exercise_frame.pack()
 
         exercise_label = ttk.Label(master=self.exercise_frame,
-                                   text="Start the One-Minute-Workout", font=("Helvetica", 12))
+                                   text="Start the One-Minute-Workout", font=("Helvetica", 16))
         exercise_button = ttk.Button(master=self.exercise_frame, text="Start exercise",
                                      command=self.start_exercise)
 
-        # button_exercise = ttk.Button(master=self.exercise_frame, text="Start exercise",
-        #                              command=threading.Thread(target=self.start_exercise).start())
-
-        exercise_label.pack()
-        exercise_button.pack(pady=10)
-
-        self.status_frame = ttk.Frame(master=self.root)
-        self.status_frame.pack()
+        exercise_label.pack(pady=20)
+        exercise_button.pack()
 
         self.quit_frame = ttk.Frame(master=self.root)
         self.quit_frame.pack()
 
-        quit_label = ttk.Label(master=self.quit_frame,
-                               text="Exit the app", font=("Helvetica", 12))
-        quit_button = ttk.Button(master=self.quit_frame, text="Quit",
+        # quit_label = ttk.Label(master=self.quit_frame,
+        #                        text="Exit the app", font=("Helvetica", 12))
+        quit_button = ttk.Button(master=self.quit_frame, text="Quit the app",
                                  command=self.root.destroy)
 
-        quit_label.pack(pady=10)
-        quit_button.pack()
+        # quit_label.pack(pady=10)
+        quit_button.pack(pady=50)
 
     def apply_timer(self):
         # start_value_h = self.timer_start_hours.get()
@@ -132,13 +130,13 @@ class UITimer:
                     self.timer_stop_hours.delete(0, "end")
                     self.timer_stop_minutes.delete(0, "end")
                     self.timer_interval.delete(0, "end")
-                    timer_label = ttk.Label(
-                        master=self.root, text="Here's your timer:", font=("Helvetica", 12))
-                    user_timer_label = ttk.Label(master=self.root)
-                    user_timer_label.config(
+                    # timer_label = ttk.Label(
+                    #     master=self.root, text="Here's your timer:", font=("Helvetica", 12))
+                    # user_timer_label = ttk.Label(master=self.root)
+                    self.user_timer_label.config(
                         text=self.user.get_timer_json(), font=("Helvetica", 16))
-                    timer_label.pack(pady=10)
-                    user_timer_label.pack()
+                    # timer_label.pack(pady=10)
+                    # user_timer_label.pack()
 
                 else:
                     messagebox.showinfo(
@@ -173,10 +171,6 @@ class UITimer:
         self.timer_interval.delete(0, "end")
 
     def start_exercise(self):
-        ttimer_label = ttk.Label(
-            master=self.status_frame, text="Exercise schedule running", font=("Helvetica", 12))
-        ttimer_label.pack()
-        self.timer_frame.destroy()
         self.set_timer_frame.destroy()
         self.exercise_frame.destroy()
         self.root.iconify()
@@ -184,6 +178,9 @@ class UITimer:
         interval_value = self.user.get_timer_interval()
         counter = Counter(stop_value, interval_value)
         loops, interval_s = counter.count_exercise_loops()
+        # ttimer_label = ttk.Label(
+        #     master=self.status_frame, text=f"Exercises remaining: {int(loops)}", font=("Helvetica", 12))
+        # ttimer_label.pack(pady=10)
         for i in range(int(loops)):
             self.root.after(i*interval_s*1000, self.open_exercise_window)
 

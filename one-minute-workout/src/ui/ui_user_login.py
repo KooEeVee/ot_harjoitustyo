@@ -2,7 +2,6 @@ from tkinter import ttk, messagebox
 from user import User
 from ui.ui_timer import UITimer
 
-
 class UIUserLogin:
     def __init__(self, root):
         self.root = root
@@ -24,7 +23,7 @@ class UIUserLogin:
 
         password_label = ttk.Label(
             master=self.login_frame, text="Your password", font=("Helvetica", 12))
-        self.password = ttk.Entry(master=self.login_frame)
+        self.password = ttk.Entry(master=self.login_frame, show="*")
 
         password_label.pack(pady=10)
         self.password.pack()
@@ -40,13 +39,13 @@ class UIUserLogin:
         self.quit_frame = ttk.Frame(master=self.root)
         self.quit_frame.pack()
 
-        quit_label = ttk.Label(master=self.quit_frame,
-                               text="Exit the app", font=("Helvetica", 12))
-        quit_button = ttk.Button(master=self.quit_frame, text="Quit",
+        # quit_label = ttk.Label(master=self.quit_frame,
+        #                        text="Exit the app", font=("Helvetica", 12))
+        quit_button = ttk.Button(master=self.quit_frame, text="Quit the app",
                                  command=self.root.destroy)
 
-        quit_label.pack(pady=10)
-        quit_button.pack()
+        # quit_label.pack(pady=10)
+        quit_button.pack(pady=50)
 
     def user_login_json(self):
         username_value = self.username.get()

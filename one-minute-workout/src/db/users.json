@@ -1,0 +1,10 @@
+{
+    "users": [
+        {
+            "username": "kaisa",
+            "password": "1234",
+            "timer_stop": "21:10",
+            "timer_interval": "1"
+        }
+    ]
+}

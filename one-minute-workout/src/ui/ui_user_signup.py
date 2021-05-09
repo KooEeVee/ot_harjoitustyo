@@ -40,13 +40,13 @@ class UIUserSignup:
         self.quit_frame = ttk.Frame(master=self.root)
         self.quit_frame.pack()
 
-        quit_label = ttk.Label(master=self.quit_frame,
-                               text="Exit the app", font=("Helvetica", 12))
-        quit_button = ttk.Button(master=self.quit_frame, text="Quit",
+        # quit_label = ttk.Label(master=self.quit_frame,
+        #                        text="Exit the app", font=("Helvetica", 12))
+        quit_button = ttk.Button(master=self.quit_frame, text="Quit the app",
                                  command=self.root.destroy)
 
-        quit_label.pack(pady=10)
-        quit_button.pack()
+        # quit_label.pack(pady=10)
+        quit_button.pack(pady=50)
 
     def save_user_to_json(self):
         username_value = self.username.get()
