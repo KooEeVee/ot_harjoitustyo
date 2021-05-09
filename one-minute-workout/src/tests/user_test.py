@@ -18,7 +18,6 @@ class TestUser(unittest.TestCase):
     def test_user_password_is_correct_in_json(self):
         self.assertEqual(self.user.get_password_json("testname"), "1234")
 
-    
     # def test_user_added_to_csv(self):
     #     self.user.new_user_csv()
     #     self.assertEqual(self.user.get_username_csv(self.user.username), True)

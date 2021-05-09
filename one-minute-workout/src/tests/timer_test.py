@@ -25,4 +25,3 @@ class TestTimer(unittest.TestCase):
     def test_timer_interval_is_correct_in_json(self):
         self.assertEqual(self.user.get_timer_interval(),
                          "30")
-

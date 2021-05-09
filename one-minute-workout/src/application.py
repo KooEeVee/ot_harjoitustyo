@@ -33,7 +33,8 @@ class Application:
         mainscreen_h = 600
         screen_w = mainscreen.winfo_screenwidth()
         screen_h = mainscreen.winfo_screenheight()
-        mainscreen.geometry(f"{mainscreen_w}x{mainscreen_h}+{screen_w}+{screen_h}")
+        mainscreen.geometry(
+            f"{mainscreen_w}x{mainscreen_h}+{screen_w}+{screen_h}")
         ui_main = UIMain(mainscreen)
         ui_main.start()
         mainscreen.mainloop()

@@ -4,6 +4,7 @@ import threading
 from tkinter import ttk, messagebox
 from user import User
 from timer import Timer
+from counter import Counter
 from ui.ui_exercise import UIExercise
 
 
@@ -20,7 +21,6 @@ class UITimer:
         self.exercise_frame = None
         self.status_frame = None
         self.quit_frame = None
-        
 
     def start(self):
         self.timer_frame = ttk.Frame(master=self.root)
@@ -29,12 +29,11 @@ class UITimer:
         timer_label = ttk.Label(master=self.timer_frame,
                                 text="Here's your timer:", font=("Helvetica", 12))
         user_timer_label = ttk.Label(master=self.timer_frame)
-        user_timer_label.config(text=self.user.get_timer_json(), font=("Helvetica", 16))
+        user_timer_label.config(
+            text=self.user.get_timer_json(), font=("Helvetica", 16))
 
         timer_label.pack(pady=10)
         user_timer_label.pack()
-
-        
 
         # start_label_h = ttk.Label(
         #     master=self.timer_frame, text="My exercise time starts at (hours, two digits eg. 07): ")
@@ -52,7 +51,7 @@ class UITimer:
 
         edit_label = ttk.Label(
             master=self.set_timer_frame, text="Edit your exercise timer", font=("Helvetica", 12))
-        
+
         edit_label.pack(pady=10)
 
         stop_label_h = ttk.Label(
@@ -76,22 +75,21 @@ class UITimer:
                                   command=self.apply_timer)
 
         button_cancel = ttk.Button(master=self.set_timer_frame, text="Cancel",
-                                   command=self.button_click_to_cancel_timer)
+                                   command=self.cancel_timer)
 
-        # button_exercise = ttk.Button(master=self.timer_frame, text="Start exercise",
-        #                              command=threading.Thread(target=self.button_click_to_exercise).start())
-    
         button_apply.pack(pady=10)
         button_cancel.pack(pady=10)
 
         self.exercise_frame = ttk.Frame(master=self.root)
         self.exercise_frame.pack()
 
-
         exercise_label = ttk.Label(master=self.exercise_frame,
-                                text="Start the One-Minute-Workout", font=("Helvetica", 12))
+                                   text="Start the One-Minute-Workout", font=("Helvetica", 12))
         button_exercise = ttk.Button(master=self.exercise_frame, text="Start exercise",
                                      command=self.start_exercise)
+
+        # button_exercise = ttk.Button(master=self.exercise_frame, text="Start exercise",
+        #                              command=threading.Thread(target=self.start_exercise).start())
 
         exercise_label.pack()
         button_exercise.pack(pady=10)
@@ -103,16 +101,14 @@ class UITimer:
         self.quit_frame.pack()
 
         quit_label = ttk.Label(master=self.quit_frame,
-                                text="Exit the app", font=("Helvetica", 12))
+                               text="Exit the app", font=("Helvetica", 12))
         quit_button = ttk.Button(master=self.quit_frame, text="Quit",
-                                  command=self.root.destroy)
+                                 command=self.root.destroy)
 
         quit_label.pack(pady=10)
         quit_button.pack()
 
     def apply_timer(self):
-        global interval_value
-        global stop_value
         # start_value_h = self.timer_start_hours.get()
         # start_value_m = self.timer_start_minutes.get()
         stop_value_h = self.timer_stop_hours.get()
@@ -172,7 +168,7 @@ class UITimer:
         #     messagebox.showinfo("Check the starting hours", "Please try again")
         #     self.timer_start_hours.delete(0, "end")
 
-    def button_click_to_cancel_timer(self):
+    def cancel_timer(self):
         # self.timer_start_hours.delete(0, "end")
         # self.timer_start_minutes.delete(0, "end")
         self.timer_stop_hours.delete(0, "end")
@@ -186,7 +182,14 @@ class UITimer:
         self.timer_frame.destroy()
         self.set_timer_frame.destroy()
         self.exercise_frame.destroy()
-        self.status_frame.destroy()
         self.root.iconify()
-        exercise = UIExercise(self.root, stop_value, interval_value)
+        stop_value = self.user.get_timer_stop()
+        interval_value = self.user.get_timer_interval()
+        counter = Counter(stop_value, interval_value)
+        loops, interval_s = counter.count_exercise_loops()
+        for i in range(int(loops)):
+            self.root.after(i*interval_s*1000, self.open_exercise_window)
+
+    def open_exercise_window(self):
+        exercise = UIExercise(self.root)
         exercise.start()

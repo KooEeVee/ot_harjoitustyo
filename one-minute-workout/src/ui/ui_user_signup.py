@@ -2,6 +2,7 @@ from tkinter import ttk, messagebox
 from user import User
 from ui.ui_timer import UITimer
 
+
 class UIUserSignup:
     def __init__(self, root):
         self.root = root
@@ -33,7 +34,6 @@ class UIUserSignup:
         cancel_button = ttk.Button(master=self.signup_frame, text="Cancel",
                                    command=self.cancel)
 
-        
         signup_button.pack(pady=10)
         cancel_button.pack(pady=10)
 
@@ -41,9 +41,9 @@ class UIUserSignup:
         self.quit_frame.pack()
 
         quit_label = ttk.Label(master=self.quit_frame,
-                                text="Exit the app", font=("Helvetica", 12))
+                               text="Exit the app", font=("Helvetica", 12))
         quit_button = ttk.Button(master=self.quit_frame, text="Quit",
-                                  command=self.root.destroy)
+                                 command=self.root.destroy)
 
         quit_label.pack(pady=10)
         quit_button.pack()
@@ -80,8 +80,6 @@ class UIUserSignup:
     def cancel(self):
         self.username.delete(0, "end")
         self.password.delete(0, "end")
-
-
 
     # def button_click_save_to_csv(self):
     #     username_value = self.username.get()

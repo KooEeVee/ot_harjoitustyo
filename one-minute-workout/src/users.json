@@ -3,8 +3,8 @@
         {
             "username": "kaisa",
             "password": "1234",
-            "timer_stop": "14:05",
-            "timer_interval": "2"
+            "timer_stop": "17:40",
+            "timer_interval": "1"
         },
         {
             "username": "Kaisa",
@@ -40,6 +40,18 @@
             "username": "muumi",
             "password": "1234",
             "timer_stop": "10:15",
+            "timer_interval": "2"
+        },
+        {
+            "username": "niilo",
+            "password": "1234",
+            "timer_stop": "17:45",
+            "timer_interval": "1"
+        },
+        {
+            "username": "mikko",
+            "password": "1234",
+            "timer_stop": "18:00",
             "timer_interval": "2"
         }
     ]

@@ -1,35 +1,64 @@
 import random
-import time
 from tkinter import ttk, Toplevel
 from PIL import Image, ImageTk
 from exercise import Exercise
-from counter import Counter
+# from counter import Counter
 
 
 class UIExercise:
-    def __init__(self, root, end, interval):
+    def __init__(self, root):
         self.root = root
         self.top = Toplevel()
-        self.top.geometry("600x400")
+        self.top.geometry(
+            f"400x400+{self.top.winfo_screenwidth()}+{self.top.winfo_screenheight()}")
         self.top.title("Exercise")
         self.number = random.randint(1, 5)
         self.exercise = Exercise(self.number)
-        self.end = end
-        self.interval = interval
-        self.loops = 0
+        # self.end = end
+        # self.interval = interval
+        self.text_frame = None
+        self.image_frame = None
 
     def start(self):
-        global exeimage
-        
-        text_label = ttk.Label(master=self.top)
-        text_label.config(text=self.exercise.get_exercise_text())
-        image_file = f'src/exercises/{self.number}.png'
-        image = Image.open(image_file)
-        resized_image = image.resize((600, 300), image.ANTIALIAS)
-        exe_image = ImageTk.PhotoImage(resized_image)
-        image_label = ttk.Label(master=self.top, image=exe_image)
-    
-        text_label.pack()
-        image_label.pack()
+        self.text_frame = ttk.Frame(master=self.top)
+        self.text_frame.pack()
 
-        self.top.after(5000, self.top.destroy())
+        text_label = ttk.Label(master=self.text_frame, font=("Helvetica", 12))
+        text_label.config(text=self.exercise.get_exercise_text())
+        text_label.pack(pady=20)
+
+        self.image_frame = ttk.Frame(master=self.top)
+        self.image_frame.pack()
+        image_file = f'src/exercises/{self.number}.png'
+        global image
+        image = Image.open(image_file)
+        render = ImageTk.PhotoImage(image)
+        image_label = ttk.Label(master=self.image_frame, image=render)
+        image.image = render
+        image_label.pack()
+        
+        self.top.after(60000, self.top.destroy)
+
+
+    # def new_exercise(self):
+    #     exercise = UIExercise(self.root)
+    #     exercise.start()
+
+        # self.text_frame = ttk.Frame(master=self.top)
+        # self.text_frame.pack()
+
+        # text_label = ttk.Label(master=self.text_frame, font=("Helvetica", 12))
+        # text_label.config(text=self.exercise.get_exercise_text())
+        # text_label.pack(pady=20)
+
+        # self.image_frame = ttk.Frame(master=self.top)
+        # self.image_frame.pack()
+        # image_file = f'src/exercises/{self.number}.png'
+        # global image
+        # image = Image.open(image_file)
+        # render = ImageTk.PhotoImage(image)
+        # image_label = ttk.Label(master=self.image_frame, image=render)
+        # image.image = render
+        # image_label.pack()
+
+   

@@ -39,14 +39,12 @@ class UIMain:
         self.quit_frame.pack()
 
         quit_label = ttk.Label(master=self.quit_frame,
-                                text="Exit the app", font=("Helvetica", 12))
+                               text="Exit the app", font=("Helvetica", 12))
         quit_button = ttk.Button(master=self.quit_frame, text="Quit",
-                                  command=self.root.destroy)
+                                 command=self.root.destroy)
 
         quit_label.pack(pady=10)
         quit_button.pack()
-
-        
 
         # self.exercise_frame = ttk.Frame(master=self.root)
         # self.exercise_frame.pack()
