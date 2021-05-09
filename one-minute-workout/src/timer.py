@@ -54,3 +54,6 @@ class Timer:
                     end = user.get("timer_stop")
                     interval = user.get("timer_interval")
                     return f"End time: {end}, Interval: {interval}"
+
+    def __str__(self):
+        return f"End time: {self.timer_stop}, exercise interval: {self.interval}"

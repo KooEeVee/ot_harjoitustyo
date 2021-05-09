@@ -2,7 +2,7 @@
 
 ### Total
 
-44,5 hours
+52,5 hours
 
 ---
 
@@ -75,4 +75,16 @@
 ---
 
 4.5.2021 | 2 hours | Documentation improvements
+
+---
+
+7.5.2021 | 1 hour | Disabling exrcise start time
+
+---
+
+8.5.2021 | 4 hours | Implementing counter, studying and testing threading
+
+---
+
+8.5.2021 | 3 hours | UI improvements
 

@@ -72,7 +72,7 @@ class User:
                     # start = user.get("timer_start")
                     stop = user.get("timer_stop")
                     interval = user.get("timer_interval")
-                    return f"End time: {stop}, Interval: {interval}"
+                    return f"End time: {stop}. Interval: {interval}."
 
     # def get_timer_start(self):
     #     with open("src/users.json", "r") as f:
