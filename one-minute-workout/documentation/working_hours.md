@@ -2,7 +2,7 @@
 
 ### Total
 
-58,5 hours
+61,5 hours
 
 ---
 
@@ -91,4 +91,8 @@
 ---
 
 9.5.2021 | 6 hours | UI improvements, implementing exercise loop
+
+---
+
+10.5.2021 | 3 hours | UI improvements, exercises, documentation
 
