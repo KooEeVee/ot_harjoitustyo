@@ -8,7 +8,7 @@ class UIExercise:
         self.root = root
         self.top = Toplevel()
         self.top.geometry(
-            f"400x400+{self.top.winfo_screenwidth()}+{self.top.winfo_screenheight()}")
+            f"400x300+{self.top.winfo_screenwidth()}+{self.top.winfo_screenheight()}")
         self.top.title("Exercise")
         self.number = random.randint(1, 5)
         self.exercise = Exercise(self.number)
@@ -27,7 +27,7 @@ class UIExercise:
 
         self.image_frame = ttk.Frame(master=self.top)
         self.image_frame.pack()
-        image_file = f'src/exercises/{self.number}.png'
+        image_file = f'src/exercises/{self.number}.jpg'
         global image
         image = Image.open(image_file)
         render = ImageTk.PhotoImage(image)
