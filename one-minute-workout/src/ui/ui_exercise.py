@@ -23,7 +23,11 @@ class UIExercise:
 
         text_label = ttk.Label(master=self.text_frame, font=("Helvetica", 12))
         text_label.config(text=self.exercise.get_exercise_text())
-        text_label.pack(pady=20)
+        text_label.pack()
+
+        progress_bar = ttk.Progressbar(master=self.text_frame, orient="horizontal", length=200, mode="determinate", maximum=60)
+        progress_bar.pack(pady=10)
+        progress_bar.start(interval=1000)
 
         self.image_frame = ttk.Frame(master=self.top)
         self.image_frame.pack()
