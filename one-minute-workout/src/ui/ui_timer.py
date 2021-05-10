@@ -53,13 +53,13 @@ class UITimer:
         edit_label.pack(pady=10)
 
         stop_label_h = ttk.Label(
-            master=self.set_timer_frame, text="My exercise time stops at (hours, two digits eg. 15): ", font=("Helvetica", 10))
+            master=self.set_timer_frame, text="My exercise time stops at (hours 00-23, two digits eg. 15): ", font=("Helvetica", 10))
         self.timer_stop_hours = ttk.Entry(master=self.set_timer_frame)
         stop_label_m = ttk.Label(
-            master=self.set_timer_frame, text="My exercise time stops at (minutes, two digits eg. 05): ", font=("Helvetica", 10))
+            master=self.set_timer_frame, text="My exercise time stops at (minutes 00-59, two digits eg. 05): ", font=("Helvetica", 10))
         self.timer_stop_minutes = ttk.Entry(master=self.set_timer_frame)
         interval_label = ttk.Label(
-            master=self.set_timer_frame, text="My exercise frequency is (minutes): ", font=("Helvetica", 10))
+            master=self.set_timer_frame, text="My exercise frequency is (minutes 1-120): ", font=("Helvetica", 10))
         self.timer_interval = ttk.Entry(master=self.set_timer_frame)
 
         stop_label_h.pack()
@@ -120,7 +120,7 @@ class UITimer:
         if stop_value_h.isdigit() and len(stop_value_h) == 2 and int(stop_value_h) >= 0 and int(stop_value_h) < 24:
             if stop_value_m.isdigit() and len(stop_value_m) == 2 and int(stop_value_m) >= 0 and int(stop_value_m) < 60:
                 # if datetime.time(int(start_value_h), int(start_value_m)) < datetime.time(int(stop_value_h), int(stop_value_m)):
-                if interval_value.isdigit() and len(interval_value) > 0 and int(interval_value) > 0:
+                if interval_value.isdigit() and len(interval_value) > 0 and int(interval_value) > 0 and int(interval_value) < 181:
                     timer.save_timer_to_user()
                     # goodbye = ttk.Label(
                     #     master=self.root, text="Timer is ready, thank you!")
