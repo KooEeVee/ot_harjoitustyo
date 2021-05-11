@@ -96,3 +96,7 @@
 
 10.5.2021 | 3 hours | UI improvements, exercises, documentation
 
+---
+
+11.5.2021 | 1,5 hours | Docstring documentation
+

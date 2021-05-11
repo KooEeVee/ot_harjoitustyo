@@ -5,10 +5,18 @@ from ui.ui_main import UIMain
 
 
 class Application:
+    """Class for tasks needed before application launch."""
     def __init__(self):
+        """Class constructor to create new application.
+
+        Args:
+            Tk(): tkinter main window
+        """
         self.mainscreen = Tk()
 
     def initialize_users_json(self):
+        """Initialize the users.json file if not available."""
+
         if path.getsize("src/db/users.json") == 0:
             data = {}
             data["users"] = []
@@ -17,16 +25,8 @@ class Application:
         else:
             pass
 
-    # def initialize_exercise_json(self):
-    #     if path.getsize("src/exercises.json") == 0:
-    #         data = {}
-    #         data["exercises"] = []
-    #         with open("src/exercises.json", "w") as f:
-    #             json.dump(data, f, indent=4)
-    #     else:
-    #         pass
-
     def initialize_ui(self):
+        """Initialize the application main window UI."""
         mainscreen = self.mainscreen
         mainscreen.title("Welcome to One-Minute Workout")
         mainscreen_w = 500
@@ -38,6 +38,3 @@ class Application:
         ui_main = UIMain(mainscreen)
         ui_main.start()
         mainscreen.mainloop()
-
-    # def close_ui(self):
-    #     self.mainscreen.destroy()

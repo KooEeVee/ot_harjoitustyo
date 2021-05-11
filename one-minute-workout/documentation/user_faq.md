@@ -15,10 +15,10 @@
 ## How do I set the timer?
 
 - The timer window opens after you sign up or log in
-- Insert the One-Minute-Workout schedule end values in the timer, hours (00 - 23) and minutes(00 - 59) in separate fields
+- Insert the One-Minute Workout schedule end values in the timer, hours (00 - 23) and minutes(00 - 59) in separate fields
 - Insert the workout schedule interval value, in minutes (1 - 180)
-- Click Apply timer button to save your One-Minute-Workout schedule
-- Note that the One-Minute-Workout schedule maximum length is 24 hours and maximum interval 3 hours
+- Click Apply timer button to save your One-Minute Workout schedule
+- Note that the One-Minute Workout schedule maximum length is 24 hours and maximum interval 3 hours
 
 ## How can I start the exercise?
 
@@ -28,7 +28,7 @@
 ## How can I skip an exercise?
 
 - You can minimize (or iconify) the exercise window to skip an exercise, so the next one will appear according to your schedule
-- If you close the exercise window, you'll need to restart the application to continue your One-Minute-Workout schedule
+- If you close the exercise window, you'll need to restart the application to continue your One-Minute Workout schedule
 
 ## How can I close the application?
 

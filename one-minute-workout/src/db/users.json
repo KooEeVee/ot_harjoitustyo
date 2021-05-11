@@ -3,8 +3,8 @@
         {
             "username": "kaisa",
             "password": "1234",
-            "timer_stop": "20:30",
-            "timer_interval": "1"
+            "timer_stop": "20:00",
+            "timer_interval": "5"
         },
         {
             "username": "Kaisa",

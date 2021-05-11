@@ -3,14 +3,27 @@ from ui.ui_user_signup import UIUserSignup
 from ui.ui_user_login import UIUserLogin
 
 class UIMain:
+    """Class for application launch UI.
+    
+    Attributes:
+        root (Tk()): main window defined in the application class
+    """
     def __init__(self, root):
+        """Class constructor to create new application launch UI.
+
+        Args:
+            root (Tk()): main window defined in the application class
+            signup_frame = frame for signup related widgets
+            login_frame = frame for login related widgets
+            quit_frame = frame for application exit related widgets
+        """
         self.root = root
         self.signup_frame = None
         self.login_frame = None
         self.quit_frame = None
 
     def start(self):
-
+        """Start and define the application launch UI"""
         self.signup_frame = ttk.Frame(master=self.root)
         self.signup_frame.pack()
 
@@ -36,23 +49,13 @@ class UIMain:
         self.quit_frame = ttk.Frame(master=self.root)
         self.quit_frame.pack()
 
-        # quit_label = ttk.Label(master=self.quit_frame,
-        #                        text="Exit the app", font=("Helvetica", 12))
         quit_button = ttk.Button(master=self.quit_frame, text="Quit the app",
                                  command=self.root.destroy)
 
-        # quit_label.pack(pady=10)
         quit_button.pack(pady=50)
 
-        # self.exercise_frame = ttk.Frame(master=self.root)
-        # self.exercise_frame.pack()
-
-        # exercise_button = ttk.Button(master=self.login_frame, text="Check",
-        #                           command=self.button_click_exercise)
-
-        # exercise_button.pack()
-
     def signup(self):
+        """Start the user signup UI and close the application launch UI"""
         signup = UIUserSignup(self.root)
         self.signup_frame.destroy()
         self.login_frame.destroy()
@@ -60,14 +63,9 @@ class UIMain:
         signup.start()
 
     def login(self):
+        """Start the user login UI and close the application launch UI"""
         login = UIUserLogin(self.root)
         self.signup_frame.destroy()
         self.login_frame.destroy()
         self.quit_frame.destroy()
         login.start()
-
-    # def button_click_exercise(self):
-    #     exercise = UIExercise(self.root)
-    #     self.signup_frame.destroy()
-    #     self.login_frame.destroy()
-    #     exercise.start()

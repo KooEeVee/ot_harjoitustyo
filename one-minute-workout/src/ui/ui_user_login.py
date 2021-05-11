@@ -3,7 +3,21 @@ from user import User
 from ui.ui_timer import UITimer
 
 class UIUserLogin:
+    """Class for user signup UI.
+    
+    Attributes:
+        root (Tk()): main window defined in the application class
+    """
     def __init__(self, root):
+        """Class constructor to create new user login UI.
+
+        Args:
+            root (Tk()): main window defined in the application class
+            username (String) = username saved in the users.json
+            password (String) = password saved with username in the users.json
+            signup_frame = frame for login related widgets
+            quit_frame = frame for application exit related widgets
+        """
         self.root = root
         self.username = None
         self.password = None
@@ -11,6 +25,7 @@ class UIUserLogin:
         self.quit_frame = None
 
     def start(self):
+        """Start and define the user login UI"""
         self.login_frame = ttk.Frame(master=self.root)
         self.login_frame.pack()
 
@@ -39,15 +54,13 @@ class UIUserLogin:
         self.quit_frame = ttk.Frame(master=self.root)
         self.quit_frame.pack()
 
-        # quit_label = ttk.Label(master=self.quit_frame,
-        #                        text="Exit the app", font=("Helvetica", 12))
         quit_button = ttk.Button(master=self.quit_frame, text="Quit the app",
                                  command=self.root.destroy)
 
-        # quit_label.pack(pady=10)
         quit_button.pack(pady=50)
 
     def user_login_json(self):
+        """Check if user exists in users.json file and if the passwords matches the username"""
         username_value = self.username.get()
         password_value = self.password.get()
         user = User(username_value, password_value)
@@ -67,6 +80,7 @@ class UIUserLogin:
             self.password.delete(0, "end")
 
     def cancel(self):
+        """Clear the login UI entries"""
         self.username.delete(0, "end")
         self.password.delete(0, "end")
 

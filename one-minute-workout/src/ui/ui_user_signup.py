@@ -2,9 +2,22 @@ from tkinter import ttk, messagebox
 from user import User
 from ui.ui_timer import UITimer
 
-
 class UIUserSignup:
+    """Class for user signup UI.
+    
+    Attributes:
+        root (Tk()): main window defined in the application class
+    """
     def __init__(self, root):
+        """Class constructor to create new user signup UI.
+
+        Args:
+            root (Tk()): main window defined in the application class
+            username (String) = username saved in the users.json
+            password (String) = password saved with username in the users.json
+            signup_frame = frame for signup related widgets
+            quit_frame = frame for application exit related widgets
+        """
         self.root = root
         self.username = None
         self.password = None
@@ -12,6 +25,7 @@ class UIUserSignup:
         self.quit_frame = None
 
     def start(self):
+        """Start and define the user signup UI"""
         self.signup_frame = ttk.Frame(master=self.root)
         self.signup_frame.pack()
 
@@ -40,15 +54,13 @@ class UIUserSignup:
         self.quit_frame = ttk.Frame(master=self.root)
         self.quit_frame.pack()
 
-        # quit_label = ttk.Label(master=self.quit_frame,
-        #                        text="Exit the app", font=("Helvetica", 12))
         quit_button = ttk.Button(master=self.quit_frame, text="Quit the app",
                                  command=self.root.destroy)
 
-        # quit_label.pack(pady=10)
         quit_button.pack(pady=50)
 
     def save_user_to_json(self):
+        """Save user signup entries to users.json file"""
         username_value = self.username.get()
         password_value = self.password.get()
         user = User(username_value, password_value)
@@ -61,9 +73,6 @@ class UIUserSignup:
             if len(username_value) > 0:
                 if len(password_value) > 0:
                     user.new_user_json()
-                    # thankyou = ttk.Label(
-                    #     master=self.root, text="Thank you for signing up!")
-                    # thankyou.pack()
                     timer = UITimer(self.root, username_value)
                     timer.start()
                     self.signup_frame.destroy()
@@ -78,6 +87,7 @@ class UIUserSignup:
                 self.password.delete(0, "end")
 
     def cancel(self):
+        """Clear the signup UI entries"""
         self.username.delete(0, "end")
         self.password.delete(0, "end")
 

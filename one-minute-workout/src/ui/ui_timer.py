@@ -6,7 +6,29 @@ from ui.ui_exercise import UIExercise
 
 
 class UITimer:
+    """Class for user timer UI.
+    
+    Attributes:
+        root (Tk()): main window defined in the application class
+        username: logged in user's username
+    """
     def __init__(self, root, username):
+        """Class constructor to create new user timer UI.
+
+        Args:
+            root (Tk()): main window defined in the application class
+            username (String): logged in user's username
+            user (String): User class object to get saved timer data related to logged in username
+            user_timer_label (String): label for showing user's saved timer values
+            timer_stop_hours (String): entry for user's timer end value hours
+            timer_stop_minutes (String): entry for user's timer end value minutes
+            timer_interval (String): entry for user's timer interval minutes
+            timer_frame: frame for show timer related widgets
+            set_timer_frame: frame for timer values set related widgets
+            exercise_frame: frame for exercise related widgets
+            status_frame: frame for application status related widgets
+            quit_frame: frame for application exit related widgets
+        """
         self.root = root
         self.username = username
         self.user = User(self.username, "")
@@ -21,6 +43,7 @@ class UITimer:
         self.quit_frame = None
 
     def start(self):
+        """Start and define the user timer UI"""
         self.timer_frame = ttk.Frame(master=self.root)
         self.timer_frame.pack()
 
@@ -33,17 +56,6 @@ class UITimer:
         timer_label.pack(pady=10)
         self.user_timer_label.pack()
 
-        # start_label_h = ttk.Label(
-        #     master=self.timer_frame, text="My exercise time starts at (hours, two digits eg. 07): ")
-        # self.timer_start_hours = ttk.Entry(master=self.timer_frame)
-        # start_label_m = ttk.Label(
-        #     master=self.timer_frame, text="My exercise time starts at (minutes, two digits eg. 20): ")
-        # self.timer_start_minutes = ttk.Entry(master=self.timer_frame)
-
-        # start_label_h.pack()
-        # self.timer_start_hours.pack()
-        # start_label_m.pack()
-        # self.timer_start_minutes.pack()
         self.set_timer_frame = ttk.Frame(master=self.root)
         self.set_timer_frame.pack()
 
@@ -59,7 +71,7 @@ class UITimer:
             master=self.set_timer_frame, text="My exercise time stops at (minutes 00-59, two digits eg. 05): ", font=("Helvetica", 10))
         self.timer_stop_minutes = ttk.Entry(master=self.set_timer_frame)
         interval_label = ttk.Label(
-            master=self.set_timer_frame, text="My exercise frequency is (minutes 1-120): ", font=("Helvetica", 10))
+            master=self.set_timer_frame, text="My exercise frequency is (minutes 1-180): ", font=("Helvetica", 10))
         self.timer_interval = ttk.Entry(master=self.set_timer_frame)
 
         stop_label_h.pack()
@@ -85,7 +97,7 @@ class UITimer:
         self.exercise_frame.pack()
 
         exercise_label = ttk.Label(master=self.exercise_frame,
-                                   text="Start the One-Minute-Workout", font=("Helvetica", 16))
+                                   text="Start the One-Minute Workout", font=("Helvetica", 16))
         exercise_button = ttk.Button(master=self.exercise_frame, text="Start exercise",
                                      command=self.start_exercise)
 
@@ -95,12 +107,9 @@ class UITimer:
         self.quit_frame = ttk.Frame(master=self.root)
         self.quit_frame.pack()
 
-        # quit_label = ttk.Label(master=self.quit_frame,
-        #                        text="Exit the app", font=("Helvetica", 12))
         quit_button = ttk.Button(master=self.quit_frame, text="Quit the app",
                                  command=self.root.destroy)
 
-        # quit_label.pack(pady=10)
         quit_button.pack(pady=50)
 
     def apply_timer(self):

@@ -2,31 +2,27 @@ import json
 
 
 class User:
+    """Class to save and update user data.
+
+    Attributes:
+        username (String): username that user sets in signup process
+        password (String): password thatuser sets in login process
+    """
     def __init__(self, username, password):
-        """Class to save and update user data.
-
-        Attributes:
-            username (String): username that user sets in signup process
-            password (String): password thatuser sets in login process
-        """
-
-        self.username = username
-        self.password = password
         """Class constructor to create new user.
 
         Args:
             username (String): username that user sets in signup process
             password (String): password thatuser sets in login process
         """
+        self.username = username
+        self.password = password
 
     def new_user_json(self):
-        """Save new user in users.json file.
-
-        """
+        """Save new user in users.json file."""
         user = {
             "username": self.username,
             "password": self.password,
-            # "timer_start": "00:00",
             "timer_stop": "00:00",
             "timer_interval": "00"
         }
@@ -41,7 +37,7 @@ class User:
         """Check if username already exists in users.json file.
 
         Returns:
-            [Boolean]: True if username already exists
+            (Boolean): True if username already exists
         """
         with open("src/db/users.json", "r") as f:
             data = json.load(f)
@@ -56,7 +52,7 @@ class User:
             username (String): username saved in users.json file
 
         Returns:
-            [String]: password saved with the username in users.json file
+            (String): password saved with the username in users.json file
         """
         with open("src/db/users.json", "r") as f:
             data = json.load(f)
@@ -65,24 +61,25 @@ class User:
                     return user.get("password")
 
     def get_timer_json(self):
+        """Get user's timer end time and interval.
+
+        Returns:
+            (String): timer end time and interval saved with the username in users.json file
+        """
         with open("src/db/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
                 if user["username"] == self.username:
-                    # start = user.get("timer_start")
                     stop = user.get("timer_stop")
                     interval = user.get("timer_interval")
                     return f"End time: {stop}. Interval: {interval} minutes."
 
-    # def get_timer_start(self):
-    #     with open("src/users.json", "r") as f:
-    #         data = json.load(f)
-    #         for user in data["users"]:
-    #             if user["username"] == self.username:
-    #                 start = user.get("timer_start")
-    #                 return start
-
     def get_timer_stop(self):
+        """Get user's timer end time.
+
+        Returns:
+            (String): timer end time saved with the username in users.json file
+        """
         with open("src/db/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
@@ -91,6 +88,11 @@ class User:
                     return stop
 
     def get_timer_interval(self):
+        """Get user's timer interval.
+
+        Returns:
+            (String): timer interval saved with the username in users.json file
+        """
         with open("src/db/users.json", "r") as f:
             data = json.load(f)
             for user in data["users"]:
