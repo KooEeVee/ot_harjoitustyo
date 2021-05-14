@@ -13,7 +13,7 @@ class UITimer:
         username: logged in user's username
     """
     def __init__(self, root, username):
-        """Class constructor to create new user timer UI.
+        """Class constructor to create user timer UI.
 
         Args:
             root (Tk()): main window defined in the application class
@@ -113,8 +113,7 @@ class UITimer:
         quit_button.pack(pady=50)
 
     def apply_timer(self):
-        # start_value_h = self.timer_start_hours.get()
-        # start_value_m = self.timer_start_minutes.get()
+        """Save timer values, end time and interval, with the user data in the users.json file. Check first that the values are correct."""
         stop_value_h = self.timer_stop_hours.get()
         stop_value_m = self.timer_stop_minutes.get()
         interval_value = self.timer_interval.get()
@@ -173,6 +172,7 @@ class UITimer:
         #     self.timer_start_hours.delete(0, "end")
 
     def cancel_timer(self):
+        """Clear the timer UI entries"""
         # self.timer_start_hours.delete(0, "end")
         # self.timer_start_minutes.delete(0, "end")
         self.timer_stop_hours.delete(0, "end")
@@ -180,6 +180,7 @@ class UITimer:
         self.timer_interval.delete(0, "end")
 
     def start_exercise(self):
+        """Count the amount of exercises and start the loop"""
         self.set_timer_frame.destroy()
         self.exercise_frame.destroy()
         self.root.iconify()

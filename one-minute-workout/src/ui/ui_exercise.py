@@ -4,7 +4,22 @@ from PIL import Image, ImageTk
 from exercise import Exercise
 
 class UIExercise:
+    """Class for exercise UI.
+    
+    Attributes:
+        root (Tk()): main window defined in the application class
+    """
     def __init__(self, root):
+        """Class constructor to create exercise UI.
+
+        Args:
+            root (Tk()): main window defined in the application class
+            top (Toplevel()): new window for the exercise
+            number (int): random number from 1-5
+            exercise: Exercise object 
+            text_frame: frame for exercise text related widgets
+            image_frame: frame for exercise image related widgets
+        """
         self.root = root
         self.top = Toplevel()
         self.top.geometry(
@@ -18,6 +33,7 @@ class UIExercise:
         self.image_frame = None
 
     def start(self):
+        """Start and define the exercise UI"""
         self.text_frame = ttk.Frame(master=self.top)
         self.text_frame.pack()
 
