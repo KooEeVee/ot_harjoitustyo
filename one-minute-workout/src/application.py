@@ -39,3 +39,6 @@ class Application:
         ui_main = UIMain(mainscreen)
         ui_main.start()
         mainscreen.mainloop()
+
+    def close(self):
+        self.mainscreen.destroy()
