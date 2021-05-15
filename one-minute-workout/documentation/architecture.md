@@ -4,7 +4,15 @@
 
 ###  Packages and classes
 
-![architecture image](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/documentation/application_architecture.png)
+Application class initializes the users.json file in the db package and starts UI Main class in the main window.
+
+ui package contains all the user interface classes.
+
+UI Main class depends on classes UI Signup and UI Login. Both of those classes depend on UI Timer class and use User class to save user info in the users.json file.
+
+UI Timer class uses User, Timer and Counter classes to save timer values with user data and start the exercise loop. UI Timer class depends on UI Exercise class, which uses Exercise class to load and render the exercises from the exercises package.
+
+![architecture image](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/documentation/application_architectrue_2.png)
 
 
 ## User Interface and Features
@@ -23,13 +31,13 @@ Existing user chooses logging in by clicking Log in button in the main window. U
 
 ### Timer set
 
-After signup / login the timer set view opens to the main window. If user has set timer before, the values are shown in the UI. User enters timer values, ending hours, minutes and exercise interval in the separate fields and clicks Apply timer button. Application validates if the entries are correct and if so, saves the values with the user data in the users.json file.
+After signup / login the timer set view opens to the main window. If user has set timer before, the values are shown in the UI. User enters timer values, ending hours, minutes and exercise interval in the separate fields and clicks Apply timer button. Application validates if the entries are correct and if so, saves the values with the user data in the users.json file. Timer values are also updated in the UI.
 
 ![timer set image](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/documentation/user_timer_set.png)
 
 ### Workout schedule start
 
-When timer values are set, user clicks the Start exercise button. Application counts the amount of exercise loops based on current tim and user's timer values. The first exercise runs immediately in a new window. After 60 seconds the exercise window closes. The loop runs random exercise after user's defined interval and ends before user's defined end time. Main window remains open until the user terminates it.
+When timer values are set, user clicks the Start exercise button. Application counts the amount of exercise loops based on current time and user's end time and interval values. The first random exercise runs immediately in a new window. After 60 seconds the exercise window closes. The loop runs random exercises after user's defined interval and ends before user's defined end time. Main window remains open until the user terminates it.
 ![exercise start image](https://github.com/KooEeVee/ot_harjoitustyo/blob/main/one-minute-workout/documentation/user_timer_exercise_start.png)
 
 ## Data Save
