@@ -1,14 +1,16 @@
 class Exercise:
     """Class to handle exercise texts and images.
 
+    Text and image files are named with index numbers, which identify them as part of the same exercise.
+
     Attributes:
-        number (int): exercise index number which is common to text and image file
+        number: exercise index number integer which is common to text and image file
     """
     def __init__(self, number):
-        """Class constructor to create new exercise.
+        """Class constructor to create an exercise.
 
         Args:
-            number (int): exercise index number which is common to text and image file
+            number: exercise index number integer which is common to text and image file
         """
         self.number = number
         self.text = None
@@ -18,20 +20,20 @@ class Exercise:
         """Get exercise text file from exercises folder.
 
         Returns:
-            (String): exercise description
+            Exercise description text
         """
         textfile = f'src/exercises/{self.number}.txt'
-        with open(textfile, "r") as f:
-            text = f.read()
+        with open(textfile, "r") as file:
+            text = file.read()
             return text
 
     def get_exercise_image(self):
         """Get exercise image file from exercises folder.
 
         Returns:
-            (Image): exercise image
+            Image related to an exercise
         """
         imagefile = f'src/exercises/{self.number}.png'
-        with open(imagefile, "r") as f:
-            image = f.read()
+        with open(imagefile, "r") as file:
+            image = file.read()
             return image

@@ -3,25 +3,30 @@ from datetime import datetime, timedelta
 class Counter:
     """Class to handle time and date related tasks.
 
+    Define date today, date tomorrow and user's timer end time as datetime objects and workout schedule lenght in seconds.
+    Define user's timer interval in seconds and count exercise loops by dividing workout length with timer interval.
+
     Attributes:
-        end (String): user's timer end time
-        interval (String): user's timer interval
+        end: user's timer end time string
+        interval: user's timer interval string
     """
     def __init__(self, end, interval):
-        """Class constructor to create new counter.
+        """Class constructor to create a counter.
 
         Args:
-            end (String): user's timer end time
-            interval (String): user's timer interval
+            end: user's timer end time string
+            interval: user's timer interval string
         """
         self.end_time = end
         self.interval = interval
 
     def count_exercise_loops(self):
-        """Count the amount of exercise loops based on user's timer end and interval.
+        """Count the amount of exercise loops by dividing user's workout schedule length with timer interval.
+        
+        Notice the 24 hours time cycle, if workout schedule ends during the same day or tomorrow.
 
         Returns:
-            ((float), (int)): a tuple containing values for the amount of exercise loops and timer interval in seconds
+            A tuple containing values for the amount of exercise loops (float) and timer interval in seconds (int)
         """
         now = datetime.now()
         tomorrow = now + timedelta(days=1)

@@ -4,16 +4,18 @@ import json
 class User:
     """Class to save and update user data.
 
+    Save username, password, timer stop 00:00 and timer interval 00.
+
     Attributes:
-        username (String): username that user sets in signup process
-        password (String): password thatuser sets in login process
+        username: username string that user sets in signup process
+        password: password string that user sets in signup process
     """
     def __init__(self, username, password):
         """Class constructor to create new user.
 
         Args:
-            username (String): username that user sets in signup process
-            password (String): password thatuser sets in login process
+            username: username string that user sets in signup process
+            password: password string that user sets in signup process
         """
         self.username = username
         self.password = password
@@ -26,21 +28,21 @@ class User:
             "timer_stop": "00:00",
             "timer_interval": "00"
         }
-        with open("src/db/users.json", "r") as f:
-            data = json.load(f)
+        with open("src/db/users.json", "r") as file:
+            data = json.load(file)
             data["users"].append(user)
 
-        with open("src/db/users.json", "w") as f:
-            json.dump(data, f, indent=4)
+        with open("src/db/users.json", "w") as file:
+            json.dump(data, file, indent=4)
 
     def get_user_json(self):
         """Check if username already exists in users.json file.
 
         Returns:
-            (Boolean): True if username already exists
+            True if username exists
         """
-        with open("src/db/users.json", "r") as f:
-            data = json.load(f)
+        with open("src/db/users.json", "r") as file:
+            data = json.load(file)
             for user in data["users"]:
                 if user.get("username") == self.username:
                     return True
@@ -49,13 +51,13 @@ class User:
         """Get user's password.
 
         Args:
-            username (String): username saved in users.json file
+            username: username saved in users.json file
 
         Returns:
-            (String): password saved with the username in users.json file
+            Password saved with the username in users.json file
         """
-        with open("src/db/users.json", "r") as f:
-            data = json.load(f)
+        with open("src/db/users.json", "r") as file:
+            data = json.load(file)
             for user in data["users"]:
                 if user.get("username") == username:
                     return user.get("password")
@@ -64,10 +66,10 @@ class User:
         """Get user's timer end time and interval.
 
         Returns:
-            (String): timer end time and interval saved with the username in users.json file
+            Timer end time and interval string saved with the username in users.json file
         """
-        with open("src/db/users.json", "r") as f:
-            data = json.load(f)
+        with open("src/db/users.json", "r") as file:
+            data = json.load(file)
             for user in data["users"]:
                 if user["username"] == self.username:
                     stop = user.get("timer_stop")
@@ -78,10 +80,10 @@ class User:
         """Get user's timer end time.
 
         Returns:
-            (String): timer end time saved with the username in users.json file
+            Timer end time string saved with the username in users.json file
         """
-        with open("src/db/users.json", "r") as f:
-            data = json.load(f)
+        with open("src/db/users.json", "r") as file:
+            data = json.load(file)
             for user in data["users"]:
                 if user["username"] == self.username:
                     stop = user.get("timer_stop")
@@ -91,10 +93,10 @@ class User:
         """Get user's timer interval.
 
         Returns:
-            (String): timer interval saved with the username in users.json file
+            Timer interval string saved with the username in users.json file
         """
-        with open("src/db/users.json", "r") as f:
-            data = json.load(f)
+        with open("src/db/users.json", "r") as file:
+            data = json.load(file)
             for user in data["users"]:
                 if user["username"] == self.username:
                     interval = user.get("timer_interval")

@@ -7,16 +7,16 @@ class UIExercise:
     """Class for exercise UI.
     
     Attributes:
-        root (Tk()): main window defined in the application class
+        root: Tk() main window defined in the application class
     """
     def __init__(self, root):
         """Class constructor to create exercise UI.
 
         Args:
-            root (Tk()): main window defined in the application class
-            top (Toplevel()): new window for the exercise
-            number (int): random number from 1-5
-            exercise: Exercise object 
+            root: Tk() main window defined in the application class
+            top: Toplevel() new window for the exercise UI
+            number: random integer from 1 to 5
+            exercise: random Exercise object
             text_frame: frame for exercise text related widgets
             image_frame: frame for exercise image related widgets
         """
@@ -33,7 +33,12 @@ class UIExercise:
         self.image_frame = None
 
     def start(self):
-        """Start and define the exercise UI"""
+        """Start and define the exercise UI.
+        
+        Exercise text, 60 second progressbar and exercise image.
+
+        Exercise window closes after 60 seconds.
+        """
         self.text_frame = ttk.Frame(master=self.top)
         self.text_frame.pack()
 
@@ -56,4 +61,3 @@ class UIExercise:
         image_label.pack()
         
         self.top.after(60000, self.top.destroy)
-   

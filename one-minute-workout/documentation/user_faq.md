@@ -23,7 +23,7 @@
 ## How can I start the exercise?
 
 - Click Start exercise button in the timer window and the One-Minute-Workout schedule will start
-- The next exercise window will pop up after the first exercise according to your chosen interval
+- The next exercise window will pop up after the first exercise, according to your chosen interval
 
 ## How can I skip an exercise?
 
@@ -32,7 +32,7 @@
 
 ## How can I close the application?
 
-- Click Quit the app button in the main window, this will close the exercise window if open and exit the application
+- Click Quit the app button in the main window, this will close the exercise window if it's open and exit the application
 
 
 

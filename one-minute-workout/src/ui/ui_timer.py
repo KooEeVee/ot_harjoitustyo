@@ -9,24 +9,24 @@ class UITimer:
     """Class for user timer UI.
     
     Attributes:
-        root (Tk()): main window defined in the application class
-        username: logged in user's username
+        root: Tk() main window defined in the application class
+        username: logged in user's username string
     """
     def __init__(self, root, username):
         """Class constructor to create user timer UI.
 
         Args:
-            root (Tk()): main window defined in the application class
-            username (String): logged in user's username
-            user (String): User class object to get saved timer data related to logged in username
-            user_timer_label (String): label for showing user's saved timer values
-            timer_stop_hours (String): entry for user's timer end value hours
-            timer_stop_minutes (String): entry for user's timer end value minutes
-            timer_interval (String): entry for user's timer interval minutes
-            timer_frame: frame for show timer related widgets
-            set_timer_frame: frame for timer values set related widgets
-            exercise_frame: frame for exercise related widgets
-            status_frame: frame for application status related widgets
+            root: Tk() main window defined in the application class
+            username: logged in user's username string
+            user: User class object to get saved timer data related to logged in username
+            user_timer_label: label for showing user's saved timer values string
+            timer_stop_hours: entry for user's timer end value hours string
+            timer_stop_minutes: entry for user's timer end value minutes string
+            timer_interval: entry for user's timer interval minutes string
+            timer_frame: frame for timer values showing related widgets
+            set_timer_frame: frame for timer values setting related widgets
+            exercise_frame: frame for exercise starting related widgets
+            status_frame: frame for application status showing related widgets
             quit_frame: frame for application exit related widgets
         """
         self.root = root
@@ -43,7 +43,14 @@ class UITimer:
         self.quit_frame = None
 
     def start(self):
-        """Start and define the user timer UI"""
+        """Start and define the user timer UI
+        
+        Show user timer. Saved values if user already has timer values set, else zero values.
+
+        Entries for timer hours, minutes and interval.
+        
+        Apply timer and cancel timer buttons, start the exercise button and quit the app button.
+        """
         self.timer_frame = ttk.Frame(master=self.root)
         self.timer_frame.pack()
 
@@ -82,10 +89,10 @@ class UITimer:
         self.timer_interval.pack()
 
         apply_button = ttk.Button(master=self.set_timer_frame, text="Apply timer",
-                                  command=self.apply_timer)
+                                  command=self._apply_timer)
 
         cancel_button = ttk.Button(master=self.set_timer_frame, text="Cancel timer",
-                                   command=self.cancel_timer)
+                                   command=self._cancel_timer)
 
         apply_button.pack(pady=10)
         cancel_button.pack(pady=10)
@@ -99,7 +106,7 @@ class UITimer:
         exercise_label = ttk.Label(master=self.exercise_frame,
                                    text="Start the One-Minute Workout", font=("Helvetica", 16))
         exercise_button = ttk.Button(master=self.exercise_frame, text="Start exercise",
-                                     command=self.start_exercise)
+                                     command=self._start_exercise)
 
         exercise_label.pack(pady=20)
         exercise_button.pack()
@@ -112,8 +119,14 @@ class UITimer:
 
         quit_button.pack(pady=50)
 
-    def apply_timer(self):
-        """Save timer values, end time and interval, with the user data in the users.json file. Check first that the values are correct."""
+    def _apply_timer(self):
+        """Save timer values, end time and interval, with the user data in the users.json file.
+        
+        Check that the entries are digits, stop hours and minutes entries' length is 2 and interval entry length is greater than 0. 
+        Check that stop value hours is not negative and less than 24.
+        Check that stop value minutes is not negative and less than 60.
+        Check that inteval value is not negative or 0 and less than 181.
+        """
         stop_value_h = self.timer_stop_hours.get()
         stop_value_m = self.timer_stop_minutes.get()
         interval_value = self.timer_interval.get()
@@ -171,7 +184,7 @@ class UITimer:
         #     messagebox.showinfo("Check the starting hours", "Please try again")
         #     self.timer_start_hours.delete(0, "end")
 
-    def cancel_timer(self):
+    def _cancel_timer(self):
         """Clear the timer UI entries"""
         # self.timer_start_hours.delete(0, "end")
         # self.timer_start_minutes.delete(0, "end")
@@ -179,8 +192,11 @@ class UITimer:
         self.timer_stop_minutes.delete(0, "end")
         self.timer_interval.delete(0, "end")
 
-    def start_exercise(self):
-        """Count the amount of exercises and start the loop"""
+    def _start_exercise(self):
+        """Start the workout schedule.
+
+        Create a Counter class object to count the amount of exercise loops in the schedule and initialize the exercise loop with the user's timer interval.
+        """
         self.set_timer_frame.destroy()
         self.exercise_frame.destroy()
         self.root.iconify()
@@ -192,8 +208,9 @@ class UITimer:
         #     master=self.status_frame, text=f"Exercises remaining: {int(loops)}", font=("Helvetica", 12))
         # ttimer_label.pack(pady=10)
         for i in range(int(loops)):
-            self.root.after(i*interval_s*1000, self.open_exercise_window)
+            self.root.after(i*interval_s*1000, self._open_exercise_window)
 
-    def open_exercise_window(self):
+    def _open_exercise_window(self):
+        "Start a new exercise UI"
         exercise = UIExercise(self.root)
         exercise.start()

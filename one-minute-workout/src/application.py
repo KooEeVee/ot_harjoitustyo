@@ -5,23 +5,23 @@ from ui.ui_main import UIMain
 
 
 class Application:
-    """Class for tasks needed before application launch."""
+    """Class for tasks needed with the application launch."""
     def __init__(self):
-        """Class constructor to create new application.
+        """Class constructor to create an application.
 
         Args:
-            Tk(): tkinter main window
+            Tkinter main window
         """
         self.mainscreen = Tk()
 
     def initialize_users_json(self):
-        """Initialize the users.json file if not available."""
+        """Initialize the users.json file if empty."""
 
         if path.getsize("src/db/users.json") == 0:
             data = {}
             data["users"] = []
-            with open("src/db/users.json", "w") as f:
-                json.dump(data, f, indent=4)
+            with open("src/db/users.json", "w") as file:
+                json.dump(data, file, indent=4)
         else:
             pass
 

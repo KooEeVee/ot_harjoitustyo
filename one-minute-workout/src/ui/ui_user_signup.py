@@ -6,17 +6,17 @@ class UIUserSignup:
     """Class for user signup UI.
     
     Attributes:
-        root (Tk()): main window defined in the application class
+        root: Tk() main window defined in the application class
     """
     def __init__(self, root):
-        """Class constructor to create new user signup UI.
+        """Class constructor to create user signup UI.
 
         Args:
-            root (Tk()): main window defined in the application class
-            username (String) = username saved in the users.json
-            password (String) = password saved with username in the users.json
-            signup_frame = frame for signup related widgets
-            quit_frame = frame for application exit related widgets
+            root: Tk() main window defined in the application class
+            username: username string entry to be saved in the users.json
+            password: password string entry to be saved with username in the users.json
+            signup_frame: frame for signup related widgets
+            quit_frame: frame for application exit related widgets
         """
         self.root = root
         self.username = None
@@ -25,7 +25,10 @@ class UIUserSignup:
         self.quit_frame = None
 
     def start(self):
-        """Start and define the user signup UI"""
+        """Start and define the user signup UI.
+        
+        Username and password entries and signup, cancel and quit the app buttons.
+        """
         self.signup_frame = ttk.Frame(master=self.root)
         self.signup_frame.pack()
 
@@ -44,9 +47,9 @@ class UIUserSignup:
         self.password.pack()
 
         signup_button = ttk.Button(master=self.signup_frame, text="Sign up",
-                                   command=self.save_user_to_json)
+                                   command=self._save_user_to_json)
         cancel_button = ttk.Button(master=self.signup_frame, text="Cancel",
-                                   command=self.cancel)
+                                   command=self._cancel)
 
         signup_button.pack(pady=10)
         cancel_button.pack(pady=10)
@@ -59,8 +62,11 @@ class UIUserSignup:
 
         quit_button.pack(pady=50)
 
-    def save_user_to_json(self):
-        """Save user signup entries to users.json file"""
+    def _save_user_to_json(self):
+        """Save user signup entries to users.json file.
+        
+        Checks for username already in use, username length and password length.
+        """
         username_value = self.username.get()
         password_value = self.password.get()
         user = User(username_value, password_value)
@@ -86,7 +92,7 @@ class UIUserSignup:
                 self.username.delete(0, "end")
                 self.password.delete(0, "end")
 
-    def cancel(self):
+    def _cancel(self):
         """Clear the signup UI entries"""
         self.username.delete(0, "end")
         self.password.delete(0, "end")
