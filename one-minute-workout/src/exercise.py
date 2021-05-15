@@ -6,6 +6,7 @@ class Exercise:
     Attributes:
         number: exercise index number integer which is common to text and image file
     """
+
     def __init__(self, number):
         """Class constructor to create an exercise.
 

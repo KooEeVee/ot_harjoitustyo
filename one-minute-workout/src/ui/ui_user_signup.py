@@ -2,12 +2,14 @@ from tkinter import ttk, messagebox
 from user import User
 from ui.ui_timer import UITimer
 
+
 class UIUserSignup:
     """Class for user signup UI.
-    
+
     Attributes:
         root: Tk() main window defined in the application class
     """
+
     def __init__(self, root):
         """Class constructor to create user signup UI.
 
@@ -26,7 +28,7 @@ class UIUserSignup:
 
     def start(self):
         """Start and define the user signup UI.
-        
+
         Username and password entries and signup, cancel and quit the app buttons.
         """
         self.signup_frame = ttk.Frame(master=self.root)
@@ -64,7 +66,7 @@ class UIUserSignup:
 
     def _save_user_to_json(self):
         """Save user signup entries to users.json file.
-        
+
         Checks for username already in use, username length and password length.
         """
         username_value = self.username.get()

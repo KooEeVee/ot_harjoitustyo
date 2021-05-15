@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+
 class Counter:
     """Class to handle time and date related tasks.
 
@@ -10,6 +11,7 @@ class Counter:
         end: user's timer end time string
         interval: user's timer interval string
     """
+
     def __init__(self, end, interval):
         """Class constructor to create a counter.
 
@@ -22,7 +24,7 @@ class Counter:
 
     def count_exercise_loops(self):
         """Count the amount of exercise loops by dividing user's workout schedule length with timer interval.
-        
+
         Notice the 24 hours time cycle, if workout schedule ends during the same day or tomorrow.
 
         Returns:

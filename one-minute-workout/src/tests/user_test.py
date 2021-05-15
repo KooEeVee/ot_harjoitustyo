@@ -1,6 +1,5 @@
 import unittest
 from user import User
-from timer import Timer
 
 
 class TestUser(unittest.TestCase):

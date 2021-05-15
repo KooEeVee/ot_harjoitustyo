@@ -10,6 +10,7 @@ class User:
         username: username string that user sets in signup process
         password: password string that user sets in signup process
     """
+
     def __init__(self, username, password):
         """Class constructor to create new user.
 

@@ -6,6 +6,7 @@ from ui.ui_main import UIMain
 
 class Application:
     """Class for tasks needed with the application launch."""
+
     def __init__(self):
         """Class constructor to create an application.
 

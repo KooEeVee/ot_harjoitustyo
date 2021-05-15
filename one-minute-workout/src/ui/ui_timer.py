@@ -7,11 +7,12 @@ from ui.ui_exercise import UIExercise
 
 class UITimer:
     """Class for user timer UI.
-    
+
     Attributes:
         root: Tk() main window defined in the application class
         username: logged in user's username string
     """
+
     def __init__(self, root, username):
         """Class constructor to create user timer UI.
 
@@ -44,11 +45,11 @@ class UITimer:
 
     def start(self):
         """Start and define the user timer UI
-        
+
         Show user timer. Saved values if user already has timer values set, else zero values.
 
         Entries for timer hours, minutes and interval.
-        
+
         Apply timer and cancel timer buttons, start the exercise button and quit the app button.
         """
         self.timer_frame = ttk.Frame(master=self.root)
@@ -91,8 +92,8 @@ class UITimer:
         apply_button = ttk.Button(master=self.set_timer_frame, text="Apply timer",
                                   command=self._apply_timer)
 
-        cancel_button = ttk.Button(master=self.set_timer_frame, text="Cancel timer",
-                                   command=self._cancel_timer)
+        cancel_button = ttk.Button(master=self.set_timer_frame, text="Cancel",
+                                   command=self._cancel)
 
         apply_button.pack(pady=10)
         cancel_button.pack(pady=10)
@@ -121,7 +122,7 @@ class UITimer:
 
     def _apply_timer(self):
         """Save timer values, end time and interval, with the user data in the users.json file.
-        
+
         Check that the entries are digits, stop hours and minutes entries' length is 2 and interval entry length is greater than 0. 
         Check that stop value hours is not negative and less than 24.
         Check that stop value minutes is not negative and less than 60.
@@ -184,7 +185,7 @@ class UITimer:
         #     messagebox.showinfo("Check the starting hours", "Please try again")
         #     self.timer_start_hours.delete(0, "end")
 
-    def _cancel_timer(self):
+    def _cancel(self):
         """Clear the timer UI entries"""
         # self.timer_start_hours.delete(0, "end")
         # self.timer_start_minutes.delete(0, "end")

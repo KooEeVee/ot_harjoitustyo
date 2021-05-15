@@ -1,5 +1,6 @@
 import json
 
+
 class Timer:
     """Class to save and update timer data.
 
@@ -10,6 +11,7 @@ class Timer:
         interval: timer interval string MM
         username: username string saved in the users.json file
     """
+
     def __init__(self, stop, interval, username):
         """Class constructor to create a timer.
 

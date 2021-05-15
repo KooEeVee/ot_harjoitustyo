@@ -69,4 +69,9 @@ Backend:
 - Exercise UI with 5 example exercises
 - Random exercise starts with exercise button click and closes after 60 seconds
 
+## Features week 7
+
+- Placeholder exercises replaced with final ones
+- Workout schedule runs according to user timer settings
+
 

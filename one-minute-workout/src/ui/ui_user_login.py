@@ -2,12 +2,14 @@ from tkinter import ttk, messagebox
 from user import User
 from ui.ui_timer import UITimer
 
+
 class UIUserLogin:
     """Class for user login UI.
-    
+
     Attributes:
         root: Tk() main window defined in the application class
     """
+
     def __init__(self, root):
         """Class constructor to create user login UI.
 

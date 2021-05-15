@@ -1,13 +1,15 @@
-from tkinter import Tk, ttk, messagebox
+from tkinter import ttk
 from ui.ui_user_signup import UIUserSignup
 from ui.ui_user_login import UIUserLogin
 
+
 class UIMain:
     """Class for application launch UI.
-    
+
     Attributes:
         root: Tk() main window defined in the application class
     """
+
     def __init__(self, root):
         """Class constructor to create an application launch UI.
 
@@ -24,7 +26,7 @@ class UIMain:
 
     def start(self):
         """Start and define the application launch UI.
-        
+
         Signup, login and quit the app buttons.
         """
         self.signup_frame = ttk.Frame(master=self.root)

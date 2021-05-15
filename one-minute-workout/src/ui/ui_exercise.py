@@ -3,12 +3,14 @@ from tkinter import ttk, Toplevel
 from PIL import Image, ImageTk
 from exercise import Exercise
 
+
 class UIExercise:
     """Class for exercise UI.
-    
+
     Attributes:
         root: Tk() main window defined in the application class
     """
+
     def __init__(self, root):
         """Class constructor to create exercise UI.
 
@@ -34,7 +36,7 @@ class UIExercise:
 
     def start(self):
         """Start and define the exercise UI.
-        
+
         Exercise text, 60 second progressbar and exercise image.
 
         Exercise window closes after 60 seconds.
@@ -46,7 +48,8 @@ class UIExercise:
         text_label.config(text=self.exercise.get_exercise_text())
         text_label.pack()
 
-        progress_bar = ttk.Progressbar(master=self.text_frame, orient="horizontal", length=200, mode="determinate", maximum=60)
+        progress_bar = ttk.Progressbar(
+            master=self.text_frame, orient="horizontal", length=200, mode="determinate", maximum=60)
         progress_bar.pack(pady=10)
         progress_bar.start(interval=1000)
 
@@ -59,5 +62,5 @@ class UIExercise:
         image_label = ttk.Label(master=self.image_frame, image=render)
         image.image = render
         image_label.pack()
-        
+
         self.top.after(60000, self.top.destroy)
