@@ -22,3 +22,9 @@
 ## Week 6
 
 [GitHub Release Week6 v.0.2](https://github.com/KooEeVee/ot_harjoitustyo/releases/tag/week6)
+
+## Week 7
+
+
+
+

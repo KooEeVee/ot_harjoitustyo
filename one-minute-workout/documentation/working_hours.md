@@ -2,7 +2,7 @@
 
 ### Total
 
-61,5 hours
+78 hours
 
 ---
 
@@ -99,4 +99,12 @@
 ---
 
 11.5.2021 | 1,5 hours | Docstring documentation
+
+---
+
+15.5.2021 | 7 hours | Documentation, testing improvements
+
+---
+
+16.5.2021 | 2 hours | Bug fix, documentation, removing commented code
 
