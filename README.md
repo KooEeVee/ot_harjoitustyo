@@ -25,6 +25,6 @@
 
 ## Week 7
 
-
+[GitHub Release Week7 v.1.0](https://github.com/KooEeVee/ot_harjoitustyo/releases/tag/week7)
 
 
