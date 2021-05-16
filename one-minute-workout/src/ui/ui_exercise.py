@@ -29,8 +29,6 @@ class UIExercise:
         self.top.title("Exercise")
         self.number = random.randint(1, 5)
         self.exercise = Exercise(self.number)
-        # self.end = end
-        # self.interval = interval
         self.text_frame = None
         self.image_frame = None
 

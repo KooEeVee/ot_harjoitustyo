@@ -14,10 +14,6 @@ class TestTimer(unittest.TestCase):
         self.assertEqual(self.timer.get_timer_from_user(),
                          "End time: 20:20, Interval: 30")
 
-    # def test_timer_start_is_correct_in_json(self):
-    #     self.assertEqual(self.user.get_timer_start(),
-    #                      "10:10")
-
     def test_timer_stop_is_correct_in_json(self):
         self.assertEqual(self.user.get_timer_stop(),
                          "20:20")

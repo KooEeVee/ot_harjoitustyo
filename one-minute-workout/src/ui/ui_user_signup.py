@@ -98,38 +98,3 @@ class UIUserSignup:
         """Clear the signup UI entries"""
         self.username.delete(0, "end")
         self.password.delete(0, "end")
-
-    # def button_click_save_to_csv(self):
-    #     username_value = self.username.get()
-    #     password_value = self.password.get()
-    #     user = User(username_value, password_value)
-    #     if user.get_username_csv(username_value):
-    #         messagebox.showinfo("Username is already taken", "Please choose another")
-    #         self.username.delete(0, "end")
-    #         self.password.delete(0, "end")
-    #     else:
-    #         if len(username_value) > 0:
-    #             if len(password_value) > 0:
-    #                 user.new_user_csv()
-    #                 thankyou = ttk.Label(
-    #                     master=self.root, text="Thank you for signing up!")
-    #                 thankyou.pack()
-    #                 self.username.delete(0, "end")
-    #                 self.password.delete(0, "end")
-    #             else:
-    #                 messagebox.showinfo("Password empty", "Please try again")
-    #                 self.password.delete(0, "end")
-    #         else:
-    #             messagebox.showinfo("Username empty", "Please try again")
-    #             self.username.delete(0, "end")
-    #             self.password.delete(0, "end")
-
-    # def button_click_to_db(self):
-    #     username_value = self.username.get()
-    #     password_value = self.password.get()
-    #     user = User(username_value, password_value)
-    #     user.new_user_db()
-    #     goodbye = ttk.Label(master=self.root, text="Thank you for signing up!")
-    #     goodbye.pack()
-    #     self.username.delete(0, "end")
-    #     self.password.delete(0, "end")

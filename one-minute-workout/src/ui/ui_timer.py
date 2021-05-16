@@ -132,43 +132,21 @@ class UITimer:
         stop_value_m = self.timer_stop_minutes.get()
         interval_value = self.timer_interval.get()
         stop_value = f"{self.timer_stop_hours.get()}:{self.timer_stop_minutes.get()}"
-        # user_value = self.username
-        # timer_start = f"{self.timer_start_hours.get()}:{self.timer_start_minutes.get()}"
-        # timer_stop = f"{self.timer_stop_hours.get()}:{self.timer_stop_minutes.get()}"
         timer = Timer(stop_value, interval_value, self.username)
 
-        # if start_value_h.isdigit() and len(start_value_h) == 2 and int(start_value_h) >= 0 and int(start_value_h) < 24:
-        #     if start_value_m.isdigit() and len(start_value_m) == 2 and int(start_value_m) >= 0 and int(start_value_m) < 60:
         if stop_value_h.isdigit() and len(stop_value_h) == 2 and int(stop_value_h) >= 0 and int(stop_value_h) < 24:
             if stop_value_m.isdigit() and len(stop_value_m) == 2 and int(stop_value_m) >= 0 and int(stop_value_m) < 60:
-                # if datetime.time(int(start_value_h), int(start_value_m)) < datetime.time(int(stop_value_h), int(stop_value_m)):
                 if interval_value.isdigit() and len(interval_value) > 0 and int(interval_value) > 0 and int(interval_value) < 181:
                     timer.save_timer_to_user()
-                    # goodbye = ttk.Label(
-                    #     master=self.root, text="Timer is ready, thank you!")
-                    # goodbye.pack()
-                    # self.timer_start_hours.delete(0, "end")
-                    # self.timer_start_minutes.delete(0, "end")
                     self.timer_stop_hours.delete(0, "end")
                     self.timer_stop_minutes.delete(0, "end")
                     self.timer_interval.delete(0, "end")
-                    # timer_label = ttk.Label(
-                    #     master=self.root, text="Here's your timer:", font=("Helvetica", 12))
-                    # user_timer_label = ttk.Label(master=self.root)
                     self.user_timer_label.config(
                         text=self.user.get_timer_json(), font=("Helvetica", 16))
-                    # timer_label.pack(pady=10)
-                    # user_timer_label.pack()
-
                 else:
                     messagebox.showinfo(
                         "Check the interval minutes", "Please try again")
                     self.timer_interval.delete(0, "end")
-                # else:
-                #     messagebox.showinfo(
-                #         "Start time must be before stop time", "Please try again")
-                #     self.timer_stop_hours.delete(0, "end")
-                #     self.timer_stop_minutes.delete(0, "end")
             else:
                 messagebox.showinfo(
                     "Check the stopping minutes", "Please try again")
@@ -177,13 +155,6 @@ class UITimer:
             messagebox.showinfo(
                 "Check the stopping hours", "Please try again")
             self.timer_stop_hours.delete(0, "end")
-        #     else:
-        #         messagebox.showinfo(
-        #             "Check the starting minutes", "Please try again")
-        #         self.timer_start_minutes.delete(0, "end")
-        # else:
-        #     messagebox.showinfo("Check the starting hours", "Please try again")
-        #     self.timer_start_hours.delete(0, "end")
 
     def _cancel(self):
         """Clear the timer UI entries"""
@@ -209,9 +180,7 @@ class UITimer:
             interval_value = self.user.get_timer_interval()
             counter = Counter(stop_value, interval_value)
             loops, interval_s = counter.count_exercise_loops()
-            # ttimer_label = ttk.Label(
-            #     master=self.status_frame, text=f"Exercises remaining: {int(loops)}", font=("Helvetica", 12))
-            # ttimer_label.pack(pady=10)
+
             for i in range(int(loops)):
                 self.root.after(i*interval_s*1000, self._open_exercise_window)
         else:

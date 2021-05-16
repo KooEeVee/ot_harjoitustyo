@@ -88,37 +88,3 @@ class UIUserLogin:
         """Clear the login UI entries"""
         self.username.delete(0, "end")
         self.password.delete(0, "end")
-
-    # def button_click_to_login_csv(self):
-    #     username_value = self.username.get()
-    #     password_value = self.password.get()
-    #     user = User(username_value, password_value)
-    #     if user.get_username_csv(username_value) == True:
-    #         if password_value == user.get_password_csv(username_value):
-    #             goodbye = ttk.Label(master=self.root, text="Login successful, welcome!")
-    #             goodbye.pack()
-    #         else:
-    #             messagebox.showinfo("Wrong password", "Please try again")
-    #             self.password.delete(0, "end")
-    #     else:
-    #         messagebox.showinfo("User not found", "Please try again")
-    #         self.username.delete(0, "end")
-    #         self.password.delete(0, "end")
-
-    # def button_click_to_login_db(self):
-    #     username_value = self.username.get()
-    #     password_value = self.password.get()
-    #     user = User(username_value, password_value)
-
-    #     if username_value == user.get_username_db(username_value):
-    #         if password_value == user.get_password_db(username_value):
-    #             goodbye = ttk.Label(master=self.root, text="Login successful, welcome!")
-    #             goodbye.pack()
-    #         else:
-    #             messagebox.showinfo("Wrong password", "Please try again")
-    #             self.username.delete(0, "end")
-    #             self.password.delete(0, "end")
-    #     else:
-    #         messagebox.showinfo("User not found", "Please try again")
-    #         self.username.delete(0, "end")
-    #         self.password.delete(0, "end")
