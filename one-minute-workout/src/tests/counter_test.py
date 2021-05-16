@@ -2,6 +2,7 @@ import unittest
 from datetime import datetime
 from counter import Counter
 
+
 class TestCounter(unittest.TestCase):
     def setUp(self):
         self.counter_today = Counter("11:00", "10")
@@ -16,4 +17,3 @@ class TestCounter(unittest.TestCase):
         self.counter_tomorrow.now = datetime(2021, 12, 24, 10, 00)
         self.assertEqual(self.counter_tomorrow.count_exercise_loops(),
                          (23.0, 3600))
-        

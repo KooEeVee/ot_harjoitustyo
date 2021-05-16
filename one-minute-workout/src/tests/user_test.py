@@ -5,7 +5,6 @@ from user import User
 class TestUser(unittest.TestCase):
     def setUp(self):
         self.user = User("testname", "1234")
-        #self.timer = Timer("10:10", "20:20", "30", "testname")
 
     def test_user_exists(self):
         self.assertNotEqual(self.user, None)

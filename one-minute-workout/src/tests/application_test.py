@@ -12,5 +12,3 @@
 
 #     def test_users_json_is_not_empty(self):
 #         self.assertNotEqual(path.getsize("src/db/users.json"), 0)
-
-    

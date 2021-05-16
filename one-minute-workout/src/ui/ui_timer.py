@@ -200,7 +200,7 @@ class UITimer:
 
         Create a Counter class object to count the amount of exercise loops in the schedule and initialize the exercise loop with the user's timer interval.
         """
-        
+
         if int(self.user.get_timer_interval()) > 0:
             self.set_timer_frame.destroy()
             self.exercise_frame.destroy()
@@ -216,7 +216,7 @@ class UITimer:
                 self.root.after(i*interval_s*1000, self._open_exercise_window)
         else:
             messagebox.showinfo(
-                    "Timer values are empty", "Please try again")
+                "Timer values are empty", "Please try again")
 
     def _open_exercise_window(self):
         "Start a new exercise UI"
