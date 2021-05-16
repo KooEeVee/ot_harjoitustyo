@@ -196,20 +196,27 @@ class UITimer:
     def _start_exercise(self):
         """Start the workout schedule.
 
+        Check that the timer values are set.
+
         Create a Counter class object to count the amount of exercise loops in the schedule and initialize the exercise loop with the user's timer interval.
         """
-        self.set_timer_frame.destroy()
-        self.exercise_frame.destroy()
-        self.root.iconify()
-        stop_value = self.user.get_timer_stop()
-        interval_value = self.user.get_timer_interval()
-        counter = Counter(stop_value, interval_value)
-        loops, interval_s = counter.count_exercise_loops()
-        # ttimer_label = ttk.Label(
-        #     master=self.status_frame, text=f"Exercises remaining: {int(loops)}", font=("Helvetica", 12))
-        # ttimer_label.pack(pady=10)
-        for i in range(int(loops)):
-            self.root.after(i*interval_s*1000, self._open_exercise_window)
+        
+        if int(self.user.get_timer_interval()) > 0:
+            self.set_timer_frame.destroy()
+            self.exercise_frame.destroy()
+            self.root.iconify()
+            stop_value = self.user.get_timer_stop()
+            interval_value = self.user.get_timer_interval()
+            counter = Counter(stop_value, interval_value)
+            loops, interval_s = counter.count_exercise_loops()
+            # ttimer_label = ttk.Label(
+            #     master=self.status_frame, text=f"Exercises remaining: {int(loops)}", font=("Helvetica", 12))
+            # ttimer_label.pack(pady=10)
+            for i in range(int(loops)):
+                self.root.after(i*interval_s*1000, self._open_exercise_window)
+        else:
+            messagebox.showinfo(
+                    "Timer values are empty", "Please try again")
 
     def _open_exercise_window(self):
         "Start a new exercise UI"
