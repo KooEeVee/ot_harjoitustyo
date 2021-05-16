@@ -1,34 +1,4 @@
 {
     "users": [
-        {
-            "username": "timertest",
-            "password": "1234",
-            "timer_stop": "20:20",
-            "timer_interval": "30"
-        },
-        {
-            "username": "testname",
-            "password": "1234",
-            "timer_stop": "00:00",
-            "timer_interval": "00"
-        },
-        {
-            "username": "timertest",
-            "password": "1234",
-            "timer_stop": "20:20",
-            "timer_interval": "30"
-        },
-        {
-            "username": "testname",
-            "password": "1234",
-            "timer_stop": "00:00",
-            "timer_interval": "00"
-        },
-        {
-            "username": "kaisa",
-            "password": "1234",
-            "timer_stop": "10:00",
-            "timer_interval": "1"
-        }
     ]
 }
