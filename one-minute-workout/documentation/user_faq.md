@@ -22,8 +22,9 @@
 
 ## How can I start the exercise?
 
-- Click Start exercise button in the timer window and the One-Minute-Workout schedule will start
-- The next exercise window will pop up after the first exercise, according to your chosen interval
+- Click Start exercise button in the timer window and the One-Minute-Workout schedule will start with the first exercise pop up window
+- The next exercise window will pop up according to your chosen interval
+- Exercise windows close automatically after 60 seconds
 
 ## How can I skip an exercise?
 

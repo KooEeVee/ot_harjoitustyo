@@ -1,6 +1,6 @@
 # Testing Document
 
-## Unit and Intgration Testing
+## Unit and Integration Testing
 
 ### Classes
 
@@ -29,7 +29,7 @@ Application launch tested with empty and existing user data.
 
 ### Features
 
-Features tested manually using UI:
+Features tested manually using UI, with correct and incorrect entries:
 - New user signup
 - Existing user login
 - Setting timer values
